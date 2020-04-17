@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   def show
     
   end
-  
+
   def new
     
   end
@@ -25,5 +25,5 @@ class OrdersController < ApplicationController
   end
 
   private
-  
+
 end
