@@ -27,4 +27,5 @@ Rails.application.routes.draw do
   get '/customers/cart_items/all_delete', to: 'cart_items#all_delete'
   get '/orders/confirm', to: 'orders#confirm'
   get '/orders/thanks', to: 'orders#thanks'
+  delete '/customers/cart_items', to: 'cart_items#all_delete'
 end
