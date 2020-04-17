@@ -1,3 +1,3 @@
 class Type < ApplicationRecord
-  has_many :order, dependent: :destroy
+  has_many :items, dependent: :destroy
 end

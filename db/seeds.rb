@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 Customer.create!(
   first_name: '神崎',
   last_name: '歩',
@@ -16,7 +17,7 @@ Customer.create!(
   postcode: '1000005',
   address: '東京都千代田区丸の内1丁目',
   phone_number: '000-0000-0000',
-  status: 0
+  status: 0,
 )
 Customer.create!(
   first_name: '松尾',
@@ -28,7 +29,7 @@ Customer.create!(
   postcode: '1000005',
   address: '東京都千代田区丸の内1丁目',
   phone_number: '000-0000-0000',
-  status: 0
+  status: 0,
 )
 Customer.create!(
   first_name: '越智',
@@ -40,7 +41,7 @@ Customer.create!(
   postcode: '1000005',
   address: '東京都千代田区丸の内1丁目',
   phone_number: '000-0000-0000',
-  status: 0
+  status: 0,
 )
 Customer.create!(
   first_name: '宮下',
@@ -52,7 +53,7 @@ Customer.create!(
   postcode: '1000005',
   address: '東京都千代田区丸の内1丁目',
   phone_number: '000-0000-0000',
-  status: 0
+  status: 0,
 )
 Customer.create!(
   first_name: '棚橋',
@@ -64,7 +65,7 @@ Customer.create!(
   postcode: '1000005',
   address: '東京都千代田区丸の内1丁目',
   phone_number: '000-0000-0000',
-  status: 0
+  status: 0,
 )
 Customer.create!(
   first_name: '大野',
@@ -76,7 +77,7 @@ Customer.create!(
   postcode: '1000005',
   address: '東京都千代田区丸の内1丁目',
   phone_number: '000-0000-0000',
-  status: 0
+  status: 0,
 )
 Customer.create!(
   first_name: '花井',
@@ -88,7 +89,7 @@ Customer.create!(
   postcode: '1000005',
   address: '東京都千代田区丸の内1丁目',
   phone_number: '000-0000-0000',
-  status: 1
+  status: 1,
 )
 Customer.create!(
   first_name: '金沢',
@@ -100,7 +101,7 @@ Customer.create!(
   postcode: '1000005',
   address: '東京都千代田区丸の内1丁目',
   phone_number: '000-0000-0000',
-  status: 0
+  status: 0,
 )
 Customer.create!(
   first_name: '前田',
@@ -112,7 +113,7 @@ Customer.create!(
   postcode: '1000005',
   address: '東京都千代田区丸の内1丁目',
   phone_number: '000-0000-0000',
-  status: 0
+  status: 0,
 )
 Customer.create!(
   first_name: '小野',
@@ -124,5 +125,131 @@ Customer.create!(
   postcode: '1000005',
   address: '東京都千代田区丸の内1丁目',
   phone_number: '000-0000-0000',
-  status: 1
+  status: 1,
+)
+
+Type.create!(
+  # id:1
+  name: 'ケーキ',
+  status: 'true',
+)
+
+Type.create!(
+  # id:2
+  name: 'プリン',
+  status: 'false',
+)
+
+Type.create!(
+  # id:3
+  name: '焼き菓子',
+  status: 'false',
+)
+
+Type.create!(
+  # id:4
+  name: 'キャンディ',
+  status: 'false',
+)
+
+Type.create!(
+  # id:5
+  name: 'クッキー',
+  status: 'false',
+)
+
+Type.create!(
+  # id:6
+  name: 'ゼリー',
+  status: 'false',
+)
+
+Item.create!(
+  type_id: 1,
+  name: '洋梨のチーズタルト',
+  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+  excluded: '1,200',
+  image: File.open('./app/assets/images/items/cheese-tart.jpg'),
+  status: 0,
+)
+
+Item.create!(
+  type_id: 1,
+  name: 'ザッハトルテ',
+  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+  excluded: '2,900',
+  image: File.open('./app/assets/images/items/sachertorte.png'),
+  status: 0,
+)
+
+Item.create!(
+  type_id: 1,
+  name: 'いちごのショートケーキ',
+  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+  excluded: '500',
+  image: File.open('./app/assets/images/items/shortcake.jpg'),
+  status: 0,
+)
+
+Item.create!(
+  type_id: 2,
+  name: '卵たっぷり濃厚プリン',
+  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+  excluded: '500',
+  image: File.open('./app/assets/images/items/pudding.jpg'),
+  status: 0,
+)
+
+Item.create!(
+  type_id: 5,
+  name: '紅茶のクッキー',
+  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+  excluded: '800',
+  image: File.open('./app/assets/images/items/coockie.jpg'),
+  status: 0,
+)
+
+Item.create!(
+  type_id: 1,
+  name: 'フルーツタルト',
+  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+  excluded: '2,900',
+  image: File.open('./app/assets/images/items/fruit-tart.jpg'),
+  status: 1,
+)
+
+Item.create!(
+  type_id: 6,
+  name: '大きな桃のゼリー',
+  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+  excluded: '480',
+  image: File.open('./app/assets/images/items/peach-jelly.png'),
+  status: 0,
+)
+
+Item.create!(
+  type_id: 3,
+  name: 'マカロンセット（8個）',
+  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+  excluded: '1,200',
+  image: File.open('./app/assets/images/items/macaroon-8.jpg'),
+  status: 0,
+)
+
+Item.create!(
+  type_id: 3,
+  name: 'マカロン（16個）',
+  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+  excluded: '2,000',
+  image: File.open('./app/assets/images/items/macaroon-16.png'),
+  status: 0,
+)
+
+Item.create!(
+  type_id: 1,
+  name: 'バナナケーキ',
+  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+  excluded: '980',
+  image: File.open('./app/assets/images/items/banana-cake.jpg'),
+  status: 0,
 )
