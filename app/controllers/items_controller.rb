@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    
 
   end
 
@@ -16,7 +17,9 @@ class ItemsController < ApplicationController
   end
 
   def top
-    
+    @types = Type.all
+    @items = Item.all
+
   end
 
   def about
