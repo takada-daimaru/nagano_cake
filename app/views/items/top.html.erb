@@ -1,5 +1,32 @@
-<p>ようこそ、NaganoCakeへ！<br>
-	このサイトは、ケーキ販売のECサイトになります。<br>
-	会員でない方も商品の閲覧はできますが、<br>
-	購入には会員登録が必要になります。
-</p>
+<div class="container">
+	<div class="row">
+	  <!-- col 指定↓ -->
+		<%= render 'items/typeserch', types:@types %>
+	  <!-- col指定↓ -->
+	  	<div class="outline-box">
+	  		<div class="box-in-box">
+				<p>ようこそ、NaganoCakeへ！<br>
+				このサイトは、ケーキ販売のECサイトになります。<br>
+				会員でない方も商品の閲覧はできますが、<br>
+				購入には会員登録が必要になります。
+				</p>
+			</div>
+		</div>
+		<h2>オススメ商品</h2>
+
+		<table>
+			<tr>
+				<% @items.each do |item| %>
+				<td>
+					<%= attachment_image_tag item, :image, size:'50×50',format:'jpg',fallback: "no_image.jpg" %>
+					<%= item.name %>
+					<%= item.excluded %>
+
+				</td>
+				<% end %>
+			</tr>
+		</table>
+		<%= link_to "もっと見る>", items_path %>
+	</div>
+</div>
+
