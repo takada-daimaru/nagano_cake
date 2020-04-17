@@ -1,2 +1,3 @@
 class TypesController < ApplicationController
+  
 end
