@@ -18,7 +18,7 @@
 			<tr>
 				<% @items.each do |item| %>
 				<td>
-					<%= attachment_image_tag item, :image, size:'50×50',format:'jpg',fallback: "no_image.jpg" %>
+					<%= attachment_image_tag item, :image, format:'jpg',size:'50x50' %>
 					<%= item.name %>
 					<%= item.excluded %>
 
