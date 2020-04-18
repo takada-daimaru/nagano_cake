@@ -9,7 +9,8 @@ class OrdersController < ApplicationController
   end
 
   def new
-    
+    @ordernew = Order.new
+    @shippingnew = Shipping.new
   end
 
   def create
