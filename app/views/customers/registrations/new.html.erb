@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-9 col-md-offset-3">
+  <div class="col-xs-9 col-xs-offset-3">
     <h2>新規会員登録</h2>
   </div>
 </div>
@@ -9,117 +9,117 @@
 
   <div class="row">
     <div class="field">
-      <div class="col-md-2 col-md-offset-1">
+      <div class="col-xs-2 col-xs-offset-1">
         <%= f.label :名前 %>
       </div>
-      <div class="col-md-3">
-        <em class="col-md-3">(姓)</em>
-        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "col-md-9" %>
+      <div class="col-xs-4">
+        <em class="col-xs-3">(姓)</em>
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "col-xs-7" %>
       </div>
-      <div class="col-md-6">
-        <em class="col-md-2">(名)</em>
-        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "col-md-5" %>
+      <div class="col-xs-5">
+        <em class="col-xs-2">(名)</em>
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "col-xs-6" %>
       </div>
     </div>
   </div>
 
   <div class="row">
     <div class="field">
-      <div class="col-md-2 col-md-offset-1">
+      <div class="col-xs-2 col-xs-offset-1">
         <%= f.label :フリガナ %>
       </div>
-      <div class="col-md-3">
-        <em class="col-md-3">(セイ)</em>
-        <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", class: "col-md-9" %>
+      <div class="col-xs-4">
+        <em class="col-xs-3">(セイ)</em>
+        <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", class: "col-xs-7" %>
       </div>
-      <div class="col-md-6">
-        <em class="col-md-2">(メイ)</em>
-        <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", class: "col-md-5" %>
+      <div class="col-xs-5">
+        <em class="col-xs-2">(メイ)</em>
+        <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", class: "col-xs-6" %>
       </div>
     </div>
   </div>
 
   <div class="row">
     <div class="field">
-      <div class="col-md-2 col-md-offset-1">
+      <div class="col-xs-2 col-xs-offset-1">
         <%= f.label :メールアドレス %>
       </div>
-      <div class="col-md-9">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="col-xs-4">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-xs-7 col-xs-offset-3" %>
       </div>
     </div>
   </div>
 
   <div class="row">
     <div class="field">
-      <div class="col-md-2 col-md-offset-1">
+      <div class="col-xs-2 col-xs-offset-1">
         <%= f.label :郵便番号 %>
         <em>(ハイフンなし)</em>
       </div>
-      <div class="col-md-9">
-        <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode" %>
+      <div class="col-xs-4">
+        <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode", class: "col-xs-7 col-xs-offset-3" %>
       </div>
     </div>
   </div>
 
   <div class="row">
     <div class="field">
-      <div class="col-md-2 col-md-offset-1">
+      <div class="col-xs-2 col-xs-offset-1">
         <%= f.label :住所 %>
       </div>
-      <div class="col-md-9">
-        <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "col-md-6" %>
+      <div class="col-xs-4">
+        <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "col-xs-9 col-xs-offset-3" %>
       </div>
     </div>
   </div>
 
   <div class="row">
     <div class="field">
-      <div class="col-md-2 col-md-offset-1">
+      <div class="col-xs-2 col-xs-offset-1">
         <%= f.label :電話番号 %>
         <em>(ハイフンなし)</em>
       </div>
-      <div class="col-md-9">
-        <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
+      <div class="col-xs-4">
+        <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "col-xs-7 col-xs-offset-3" %>
       </div>
     </div>
   </div>
 
   <div class="row">
     <div class="field">
-      <div class="col-md-2 col-md-offset-1">
+      <div class="col-xs-2 col-xs-offset-1">
         <%= f.label :パスワード %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %>文字以上)</em>
         <% end %>
       </div>
-      <div class="col-md-9">
-        <%= f.password_field :password, autocomplete: "new-password" %>
+      <div class="col-xs-4">
+        <%= f.password_field :password, autocomplete: "new-password", class: "col-xs-7 col-xs-offset-3" %>
       </div>
     </div>
   </div>
 
   <div class="row">
     <div class="field">
-      <div class="col-md-2 col-md-offset-1">
+      <div class="col-xs-2 col-xs-offset-1">
         <%= f.label :パスワード %>
         <em>(確認用)</em>
       </div>
-      <div class="col-md-9">
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <div class="col-xs-4">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-xs-7 col-xs-offset-3" %>
       </div>
     </div>
   </div>
 
   <div class="row">
     <div class="actions">
-       <%= f.submit "新規登録", class: "btn btn-success col-md-2 col-md-offset-5" %>
+       <%= f.submit "新規登録", class: "btn btn-success col-xs-2 col-xs-offset-5" %>
     </div>
   </div>
 <% end %>
 
 <div class="row">
-  <div class="col-md-9 col-md-offset-3">
+  <div class="col-xs-9 col-xs-offset-3">
     <h2>既に会員登録済みの方</h2>
   </div>
 </div>
