@@ -1,46 +1,50 @@
-<h2>新規会員登録</h2>
+<div class="row">
+  <div class="col-md-9 col-md-offset-3">
+    <h2>新規会員登録</h2>
+  </div>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="row">
     <div class="field">
-      <div class="col-md-2">
+      <div class="col-md-2 col-md-offset-1">
         <%= f.label :名前 %>
       </div>
       <div class="col-md-3">
-        <em>(姓)</em>
-        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+        <em class="col-md-3">(姓)</em>
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "col-md-9" %>
       </div>
-      <div class="col-md-7">
-        <em>(名)</em>
-        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+      <div class="col-md-6">
+        <em class="col-md-2">(名)</em>
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "col-md-5" %>
       </div>
     </div>
   </div>
 
   <div class="row">
     <div class="field">
-      <div class="col-md-2">
+      <div class="col-md-2 col-md-offset-1">
         <%= f.label :フリガナ %>
       </div>
       <div class="col-md-3">
-        <em>(セイ)</em>
-        <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
+        <em class="col-md-3">(セイ)</em>
+        <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", class: "col-md-9" %>
       </div>
-      <div class="col-md-7">
-        <em>(メイ)</em>
-        <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>
+      <div class="col-md-6">
+        <em class="col-md-2">(メイ)</em>
+        <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", class: "col-md-5" %>
       </div>
     </div>
   </div>
 
   <div class="row">
     <div class="field">
-      <div class="col-md-2">
+      <div class="col-md-2 col-md-offset-1">
         <%= f.label :メールアドレス %>
       </div>
-      <div class="col-md-10">
+      <div class="col-md-9">
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
     </div>
@@ -48,11 +52,11 @@
 
   <div class="row">
     <div class="field">
-      <div class="col-md-2">
+      <div class="col-md-2 col-md-offset-1">
         <%= f.label :郵便番号 %>
         <em>(ハイフンなし)</em>
       </div>
-      <div class="col-md-10">
+      <div class="col-md-9">
         <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode" %>
       </div>
     </div>
@@ -60,22 +64,22 @@
 
   <div class="row">
     <div class="field">
-      <div class="col-md-2">
+      <div class="col-md-2 col-md-offset-1">
         <%= f.label :住所 %>
       </div>
-      <div class="col-md-10">
-        <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+      <div class="col-md-9">
+        <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "col-md-6" %>
       </div>
     </div>
   </div>
 
   <div class="row">
     <div class="field">
-      <div class="col-md-2">
+      <div class="col-md-2 col-md-offset-1">
         <%= f.label :電話番号 %>
         <em>(ハイフンなし)</em>
       </div>
-      <div class="col-md-10">
+      <div class="col-md-9">
         <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
       </div>
     </div>
@@ -83,13 +87,13 @@
 
   <div class="row">
     <div class="field">
-      <div class="col-md-2">
+      <div class="col-md-2 col-md-offset-1">
         <%= f.label :パスワード %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %>文字以上)</em>
         <% end %>
       </div>
-      <div class="col-md-10">
+      <div class="col-md-9">
         <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
     </div>
@@ -97,11 +101,11 @@
 
   <div class="row">
     <div class="field">
-      <div class="col-md-2">
+      <div class="col-md-2 col-md-offset-1">
         <%= f.label :パスワード %>
         <em>(確認用)</em>
       </div>
-      <div class="col-md-10">
+      <div class="col-md-9">
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
     </div>
@@ -114,7 +118,11 @@
   </div>
 <% end %>
 
-<h2>既に会員登録済みの方</h2>
+<div class="row">
+  <div class="col-md-9 col-md-offset-3">
+    <h2>既に会員登録済みの方</h2>
+  </div>
+</div>
 
 <%= render "customers/shared/links" %>
 

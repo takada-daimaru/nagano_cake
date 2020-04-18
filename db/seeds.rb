@@ -168,7 +168,7 @@ Item.create!(
   type_id: 1,
   name: '洋梨のチーズタルト',
   explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
-  excluded: '1,200',
+  excluded: '1200',
   image: File.open('./app/assets/images/items/cheese-tart.jpg'),
   status: 0,
 )
@@ -177,7 +177,7 @@ Item.create!(
   type_id: 1,
   name: 'ザッハトルテ',
   explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
-  excluded: '2,900',
+  excluded: '2900',
   image: File.open('./app/assets/images/items/sachertorte.png'),
   status: 0,
 )
@@ -213,7 +213,7 @@ Item.create!(
   type_id: 1,
   name: 'フルーツタルト',
   explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
-  excluded: '2,900',
+  excluded: '2900',
   image: File.open('./app/assets/images/items/fruit-tart.jpg'),
   status: 1,
 )
@@ -231,7 +231,7 @@ Item.create!(
   type_id: 3,
   name: 'マカロンセット（8個）',
   explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
-  excluded: '1,200',
+  excluded: '1200',
   image: File.open('./app/assets/images/items/macaroon-8.jpg'),
   status: 0,
 )
@@ -240,7 +240,7 @@ Item.create!(
   type_id: 3,
   name: 'マカロン（16個）',
   explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
-  excluded: '2,000',
+  excluded: '2000',
   image: File.open('./app/assets/images/items/macaroon-16.png'),
   status: 0,
 )
