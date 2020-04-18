@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_163942) do
     t.string "name", null: false
     t.text "explanation", null: false
     t.integer "excluded", null: false
-    t.string "image", null: false
+    t.string "image_id", null: false
     t.integer "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
