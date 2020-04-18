@@ -1,11 +1,15 @@
 class ItemsController < ApplicationController
   def index
        @types = Type.all
-       @items = Item.all
+       @type = 
+       @items = Item.page(params[:page]).reverse_order
 
   end
 
   def show
+    @cartitemnew = CartItem.new
+    @types = Type.all
+    @item = Item.find(params[:id])
     
   end
 
