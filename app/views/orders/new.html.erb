@@ -5,12 +5,12 @@
     <h4>支払い方法</h4>
     <%= form_for @ordernew, url: orders_confirm_path do |f| %>
       <div class="radio-inline">
-        <%= f.radio_button :payment, :transfer %>
+        <%= f.radio_button :payment, :銀行振込 %>
         <%= f.label :transfer, "銀行振込" %>
       </div>
 
       <div class="radio-inline">
-        <%= f.radio_button :payment, :credit %>
+        <%= f.radio_button :payment, :クレジットカード %>
         <%= f.label :credit, "クレジットカード" %>
       </div>
     <% end %>
@@ -24,7 +24,6 @@
   <section>
     <h4>お届け先</h4>
     
-
     <ul>
       <li class="select"> 
         <p class="form-info">ご自身の住所</p>
@@ -44,7 +43,7 @@
         <p class="form-info">新しいお届け先</p>
       </li>
     
-      <%= form_for(@shippingnew) do |f| %>
+      <%= form_for(@shippingnew)  do |f| %>
 
         <div class="fiels row">
           <div class="col-xs-2">
