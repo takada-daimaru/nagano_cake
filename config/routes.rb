@@ -9,6 +9,14 @@ Rails.application.routes.draw do
     passwords:     'customers/passwords',
     registrations: 'customers/registrations'
   }
+  
+  root 'items#top'
+  get '/items/top', to: 'items#top'
+  get '/items/about', to: 'items#about'
+  get '/customers/cart_items/all_delete', to: 'cart_items#all_delete'
+  get '/orders/confirm', to: 'orders#confirm'
+  get '/orders/thanks', to: 'orders#thanks'
+  delete '/customers/cart_items', to: 'cart_items#all_delete'
 
   resource :customers do
     # update :update_status  ここの記述不明です！
@@ -21,11 +29,4 @@ Rails.application.routes.draw do
   resources :orders, only: [:new, :create, :index, :show]
   resources :shippings, only: [:index, :create, :destroy, :edit, :update]
 
-  root 'items#top'
-  get '/items/top', to: 'items#top'
-  get '/items/about', to: 'items#about'
-  get '/customers/cart_items/all_delete', to: 'cart_items#all_delete'
-  get '/orders/confirm', to: 'orders#confirm'
-  get '/orders/thanks', to: 'orders#thanks'
-  delete '/customers/cart_items', to: 'cart_items#all_delete'
 end

@@ -1,3 +1,18 @@
-<div class="row">
-  <p class="thanks-text">ご購入ありがとうございました！</p>
+<div class="height thanks">
+  <div class="text-center">
+    <h3 id="thanks">ご購入ありがとうございました！</h3>
+    <button id="omikuji">私たちからの些細なプレゼントです！</button>
+    <div class="present">
+      <%= image_tag 'takadadaimaru.png' %>
+      <p>nagano cake運営 高田大丸4人組</p>
+    </div>
+  </div>
 </div>
+
+<script>
+  $(function() {
+    $('#omikuji').click(function() {
+      $('.present').addClass("text-active")
+    });
+  });
+</script>
