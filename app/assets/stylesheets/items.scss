@@ -9,4 +9,16 @@
 .item{
 	width: 25%;
 }
+.outline-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-size: cover;
+	height: 500px;
+}
+.top-text {
 
+	text-align: center;
+	font-size: 20px;
+	color: white;
+}
