@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_16_163942) do
+ActiveRecord::Schema.define(version: 2020_04_18_120306) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -57,21 +57,8 @@ ActiveRecord::Schema.define(version: 2020_04_16_163942) do
     t.string "name", null: false
     t.text "explanation", null: false
     t.integer "excluded", null: false
-    t.string "image", null: false
+    t.string "image_id", null: false
     t.integer "status", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "oders", force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.integer "shipping_cost", default: 800, null: false
-    t.integer "payment", null: false
-    t.integer "status", default: 0, null: false
-    t.string "postcode", null: false
-    t.text "address", null: false
-    t.string "destination", null: false
-    t.integer "invoice", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,6 +69,19 @@ ActiveRecord::Schema.define(version: 2020_04_16_163942) do
     t.integer "status", default: 0, null: false
     t.integer "quontity", null: false
     t.integer "price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "shipping_cost", default: 800, null: false
+    t.integer "payment", null: false
+    t.integer "status", default: 0, null: false
+    t.string "postcode", null: false
+    t.text "address", null: false
+    t.string "destination", null: false
+    t.integer "invoice", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

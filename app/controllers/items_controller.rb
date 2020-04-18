@@ -1,9 +1,14 @@
 class ItemsController < ApplicationController
   def index
+    if params[:types_id] == nil
+      @items = Item.page(params[:page]).reverse_order
+      @types = Type.all
+    else
+       @type = Type.find(params[:types_id])
        @types = Type.all
-       @type = 
-       @items = Item.page(params[:page]).reverse_order
-
+       @item = @type.items
+       @items = @item.page(params[:page]).reverse_order
+    end
   end
 
   def show
