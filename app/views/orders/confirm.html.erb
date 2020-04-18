@@ -1,54 +1,61 @@
 <div class="row confirm">
   <h2>注文情報</h2>
-  <div class="col-xs-8">
-    <table>
-      <tr>
-        <th>商品名</th>
-        <th>単価価格(税込)</th>
-        <th>数量</th>
-        <th>小計</th>
-      </tr>
-      <%# @order.each do |o| %>
+  <div class="col-xs-7">
+    <div class="alt-table-responsive">
+    
+      <table class="table table-bordered">
         <tr>
-          <%#<td><%= o.item.name %><%#</td>
-          <td><%= o.item.excluded %><%#</td>
-          <td><%= o.item. %><%#</td>
-          <td><%= o.item.name %><%#</td>%>
-          <td>画像＋ケーキ</td>
-          <td>900</td>
-          <td>2</td>
-          <td>1800</td>
+          <th class="col-xs-5">商品名</th>
+          <th class="col-xs-3">単価価格(税込)</th>
+          <th class="col-xs-2">数量</th>
+          <th class="col-xs-2">小計</th>
         </tr>
-      <%# end %>
+        <%# @order.each do |o| %>
+          <tr>
+            <%#<td><%= o.item.name %><%#</td>
+            <td><%= o.item.excluded %><%#</td>
+            <td><%= o.item. %><%#</td>
+            <td><%= o.item.name %><%#</td>%>
+            <td>画像＋ケーキ</td>
+            <td>900</td>
+            <td>2</td>
+            <td>1800</td>
+          </tr>
+        <%# end %>
 
-    </table>
+      </table>
+    </div>
   </div>
 
-  <div class="col-xs-3 offset-xs-1">
-    <table>
-      <tr>
-        <th>送料</th><td>800</td>
-      </tr>
-      <tr>
-        <th>商品合計</th><td>1,760</td>
-      </tr>
-      <tr>
-        <th>請求金額</th><td>2,560</td>
-      </tr>
-    </table>
+  <div class="col-xs-3 col-xs-offset-1">
+    <div class="alt-table-responsive">
+      <table class="table table-bordered">
+        <tr>
+          <th>送料</th><td>800</td>
+        </tr>
+        <tr>
+          <th>商品合計</th><td>1,760</td>
+        </tr>
+        <tr>
+          <th>請求金額</th><td>2,560</td>
+        </tr>
+      </table>
+   </div>
   </div>
 
-  <table>
+
+  <table class="payment-address-table">
     <tr>
-      <th>支払方法</th><td>クレジットカード（データ持ってくるよ！）</td>
+      <th width="150">支払方法</th><td>クレジットカード（データ持ってくるよ！）</td>
     </tr>
     <tr>
-      <th>お届け先</th><td>住所（order.postcode, order.address, <br> order.name)</td>
+      <th width="150">お届け先</th><td>住所（@order.postcode, @order.address, <br> @order.name)</td>
     </tr>
   </table>
-
-<button class="btn btn-success">
-  <a href="#">注文を確定する</a>
-</button>
+  <div class="text-center">
+    <button class="btn btn-success">
+      <a href="#">注文を確定する</a>
+    </button>
+  </div>
 
 </div>
