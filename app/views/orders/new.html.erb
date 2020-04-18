@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row new">
   <h2>注文情報入力</h2>
   
   <section>
@@ -26,22 +26,22 @@
     
 
     <ul>
-      <li> 
-        <p>ご自身の住所</p>
+      <li class="select"> 
+        <p class="form-info">ご自身の住所</p>
         <ul>
-          <li>住所</li>
-          <li>名前</li>
+          <li>customerの郵便番号、住所を表示(customers.postcode, customers.address????)</li>
+          <li>customerの名前を表示(customers.name????)</li>
         </ul>
       </li>
 
-      <li>
-        <p>登録済住所から選択</p>
-        <ul>
-          <li>住所をプルダウン式で選択できるようにする</li>
-        </ul>
+      <li  class="select">
+        <p class="form-info">登録済住所から選択</p>
+        <%= form_for @ordernew, url: orders_confirm_path do |f| %>
+          <%= f.select :address, [["a", "b"], ["c", "d"]], {include_blank: "選択して！"}, {class: "form-control"} %>
+        <% end %>
       </li>
-      <li>
-        <p>新しいお届け先</p>
+      <li class="select">
+        <p class="form-info">新しいお届け先</p>
       </li>
     
       <%= form_for(@shippingnew) do |f| %>
