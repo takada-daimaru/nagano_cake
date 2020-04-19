@@ -29,7 +29,8 @@ class OrdersController < ApplicationController
         @order.destination = Shipping.find(shipping_params[:id]).name
 
       when "新しいお届け先"
-        
+    
+    end
   end
 
   def create
@@ -38,8 +39,8 @@ class OrdersController < ApplicationController
       current_customer.cart_items.each do |cart_item|
         # 注文商品テーブルにレコードを追加する
         @order_items = OrderItem.new(
-          order_id: @order.id
-          item_id: cart_item.item.id,
+          order_id: @order.id,
+          item_id: cart_item.item_id,
           # status: 
           quontity: cart_item.quontity,
           price: cart_item.item.excluded,
