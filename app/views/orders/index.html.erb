@@ -10,23 +10,24 @@
         <th class="col-xs-2">ステータス</th>
         <th class="col-xs-2">注文詳細</th>
       </tr>
-      <tr>
-        <td>2019/11/5(仮)</td>
-        <td>
-          1500041(仮) <%#= @order.postcode %><br>
-          東京都渋谷区神南1丁目19-11 パークウェースクエア2 4階(仮) <%#= @order.address %><br>
-          山田花子(仮) <%#= @order.destination %> <%#= @order.shipping_cost %>
-        </td>
-        <td>
-          いちごのショートケーキ(仮)<br>
-          ガトーショコラ(仮)
-        </td>
-        <td>2,300(仮) <%#= (@order.invoice).to_i + (@order.shipping_cost).to_i %></td>
-        <td>入金確認(仮)</td>
-        <td><Button class="btn btn-primary">表示する</button> <%#= link_to "表示する", order_path, class: "btn btn-pramary" %></td>
-      </tr>
-      <tr>
-      </tr>
+      <% @orders.each do order %>
+        <tr>
+          <td><%= order.created_at strftime("%Y/%m/%d") %></td>
+          <td>
+            <%= order.postcode %><br>
+            <%= order.address %><br>
+            <%= order.destination %>
+          </td>
+          <td>
+            <% order.order_items.each do |f| %>
+              <%= f.items.name %><br>
+            <% end %>
+          </td>
+          <td><%= "#{(@order.invoice).to_i + (@order.shipping_cost).to_i}円" %></td>
+          <td><%= order.status %></td>
+          <td><%= link_to "表示する", order_path, class: "btn btn-pramary" %></td>
+        </tr>
+      <% end %>
     </table>
   </div>
 
