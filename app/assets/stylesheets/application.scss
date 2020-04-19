@@ -16,23 +16,40 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+header {
+	height: 100px;
+}
 
-a {
+.types-name {
 	color: navy;
-	padding: 10px;
-	border-radius: 10px/20px;
+	margin: 5px;
+	padding: 5px;
+	border-radius: 10px;
 	-webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all  0.5s ease;
 }
 
-a:hover {
+.types-name:hover {
 	color: white;
 	background-color: blue;
+}
+a {
+	color: navy;
+}
+a:hover {
 	text-decoration: none;
 }
-
-li:hover {
-	background-color: blue;
+footer {
+	background-color: navy;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+.copyright {
+	color: white;
+	font-family: serif;
+}
+

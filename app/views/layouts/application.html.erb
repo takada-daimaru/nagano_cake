@@ -12,9 +12,9 @@
   <body style="background-color: ; font-size: 15px;">
     <header>
       <div class="container relative">
-        <nav class="navbar-main">
+        <nav>
           <img src="/assets/nagano_cake.png" alt="ロゴ" width="auto" height="70">
-          <ul class="nav navbar-nav navbar-right ">
+          <ul class="nav navbar-nav navbar-right">
             <% if customer_signed_in? %>
               <li><%= link_to 'マイページ',customers_path(current_customer) %></li>
               <li><%= link_to '商品一覧',items_path %></li>
@@ -33,4 +33,7 @@
       <%= yield %>
     </div>
   </body>
+  <footer>
+    <p class="copyright">©︎TakadaDaimaru Corporation</p>
+  </footer>
 </html>
