@@ -1,6 +1,6 @@
 <div class="types serch">
-			<h3>ジャンル検索</h3>
-			<% types.each do |type| %>
-			  <p><%= link_to type.name, items_path(types_id: type.id), class: "types-name" %></p>
-			<% end %>
+	<h3>ジャンル検索</h3>
+	<% types.each do |type| %>
+	  <p><%= link_to type.name, items_path(types_id: type.id), class: "types-name" %></p>
+	<% end %>
 </div>
