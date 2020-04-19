@@ -10,7 +10,6 @@ class OrdersController < ApplicationController
 
   def new
     @ordernew = Order.new
-    @shippingnew = Shipping.new
   end
 
   def create
