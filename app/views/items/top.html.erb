@@ -26,8 +26,8 @@
 						<br>
 						<%= item.name %>
 						<br>
-						<span>¥</span>
-						<%= item.excluded %>
+					<%= number_to_currency(item.excluded, :locale => 'jp') %>
+						<br>
 						<br>
 					<% end %>
 
