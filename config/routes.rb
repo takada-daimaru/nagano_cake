@@ -1,26 +1,26 @@
 Rails.application.routes.draw do
   namespace :admins do
     get 'orders/index'
+    get 'orders/id/update'
     get 'orders/show'
-    get 'orders/update'
 
     get 'customers/index'
+    get 'customers/id/edit'
+    get 'customers/id/update'
     get 'customers/show'
-    get 'customers/edit'
-    get 'customers/update'
 
     get 'types/index'
     get 'types/create'
-    get 'types/edit'
-    get 'types/update'
+    get 'types/id/edit'
+    get 'types/id/update'
 
     get 'items/index'
-    get 'items/show'
     get 'items/new'
-    get 'items/create'
-    get 'items/edit'
-    get 'items/update'
+    get 'items/id/create'
+    get 'items/id/edit'
+    get 'items/id/update'
     get 'items/top'
+    get 'items/show'
   end
   
   devise_for :admins, controllers: {
