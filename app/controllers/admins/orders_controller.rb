@@ -1,10 +1,14 @@
 class Admins::OrdersController < ApplicationController
-  def index
+  def top
   end
 
   def show
   end
 
   def update
+  end
+
+  def history
+  	@orders = Order.all
   end
 end

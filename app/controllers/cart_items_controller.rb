@@ -1,42 +1,41 @@
 class CartItemsController < ApplicationController
   def index
-    if current_cart_item = ""
-    @cart = CartItem.item.all
-    else
-    @cart_items = current_cart_item.item
-  end
+    @cartitems = CartItem.all
 
   end
+
 
   def create
-    if @cart_item.blank?
-       @cart_item = CartItem.new(item_id: params[:item_id])
-    end
-
-    @cart_item.quontity = params[:quontity].to_i
+    
+    @cart_item = CartItem.new(cart_item_params)
+    @cart_item.item_id = params[:item_id]
+    @cart_item.customer_id = current_customer.id
     @cart_item.save
     redirect_to customers_cart_items_path
   end
 
   def update
-    
+    @cart_item = CartItem.find(params[:id])
   end
 
   def destroy
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.destroy
+    redirect_to customers_cart_items_path
     
   end
 
   def all_delete
+    @cart_item = CartItem.all
+    @cart_item.destroy_all
+    redirect_to items_path
 
   end
   
   private
 
-  def setup_cart_item!
-    @cart_item = current_cart_item.cart_items.find_by(item_id: params[:item_id])
-  end
   def cart_item_params
-    params.require(:cart_item).permit(:item_id,:quontity,:current_customer_id,)
+    params.require(:cart_item).permit(:quontity )
   end
 
 

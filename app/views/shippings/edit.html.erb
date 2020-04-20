@@ -1,0 +1,15 @@
+<h3>配送先編集</h3>
+<%= form_for @shipping do |f| %>
+
+<p>郵便番号（ハイフンなし）</p>
+<%= f.text_field :postcode %>
+
+<p>住所</p>
+<%= f.text_field :address %>
+
+<p>宛名</p>
+<%= f.text_field :name %>
+
+<%= f.submit '編集する' %>
+<% end %>
+
