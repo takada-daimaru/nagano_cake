@@ -1,2 +1,17 @@
-<h1>Admins::Types#index</h1>
-<p>Find me in app/views/admins/types/index.html.erb</p>
+<div class="row">
+  <h3>ジャンル追加・一覧画面</h3>
+  
+  <div class="text-center">
+    <%= form_for @typenew do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.radio_button :status, true %>
+      <%= f.label :status, "有効" %>
+      <%= f.radio_button :status, false %>
+      <%= f.label :status, "無効" %>
+    <% end %>
+
+  </div>
+
+</div>
