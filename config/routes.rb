@@ -20,12 +20,11 @@ Rails.application.routes.draw do
 
   resource :customers do
     # update :update_status  ここの記述不明です！
-    resources :cart_items, only: [:index, :create, :update, :destroy] # do
-    #   destroy :all_delete   ここの表記不明です！
-    # end
+    resources :cart_items, only: [:index, :create, :update, :destroy] 
+     resources :items, only: [:new, :create]
   end
 
-  resources :items, only: [:index, :show, :new, :create]
+  resources :items, only: [:index, :show ]
   resources :orders, only: [:new, :create, :index, :show]
   resources :shippings, only: [:index, :create, :destroy, :edit, :update]
 
