@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
       when "ご自身の住所"
         @order.postcode = current_customer.postcode
         @order.address = current_customer.address
-        @order.destination = current_customer.name
+        @order.destination = current_customer.last_name
 
       when "登録済住所から選択"
         @order.postcode = Shipping.find(shipping_params[:id]).postcode
