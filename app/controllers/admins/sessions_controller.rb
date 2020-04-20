@@ -9,7 +9,6 @@ class Admins::SessionsController < Devise::SessionsController
     else
       admins_orders_top_path
     end
-    
   end
 
   # GET /resource/sign_in

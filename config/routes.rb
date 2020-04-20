@@ -46,7 +46,7 @@ Rails.application.routes.draw do
   resource :customers do
     # update :update_status  ここの記述不明です！
 
-    resources :cart_items, only: [:index, :create, :update, :destroy] 
+    resources :cart_items, only: [:index, :create, :update, :destroy]
      resources :items, only: [:new, :create]
 
 end
