@@ -1,30 +1,12 @@
 Rails.application.routes.draw do
     # 管理者サイト
   namespace :admins do
-
-    get 'orders', to: 'orders#history'
-    get 'orders/:id', to: 'orders#show'
-    patch 'orders/:id/update', to: 'orders#update'
-    get 'orders/top', to: 'orders#top'
-
-
-    get 'customers', to: 'customers#index'
-    get 'customers/:id', to: 'customers#show'
-    get 'customers/:id/edit', to: 'customers#edit'
-    patch 'customers/:id/update', to: 'customers#update'
-
-    get 'types', to: 'types#index'
-    post 'types/create', to: 'types#create'
-    get 'types/:id/edit', to: 'types#edit'
-    patch 'types/:id/update', to: 'types#update'
-
-
-    get 'items', to: 'items#index'
-    get 'items/new', to: 'items#new'
-    post 'items/:id/create', to: 'items#create'
-    get 'items/:id', to: 'items#show'
-    get 'items/:id/edit', to: 'items#edit'
-    patch 'items/:id/update', to: 'items#update'
+    get '/orders/top', to: 'orders#top'
+    get '/orders', to: 'orders#history'
+    resources :orders, only: [:show, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :types, only: [:index, :create, :edit, :update]
+    resources :items, only: [:index, :new, :create, :show, :edit, :update]
   end
 
   devise_for :admins, controllers: {
@@ -49,7 +31,7 @@ Rails.application.routes.draw do
 
   resource :customers do
     # update :update_status  ここの記述不明です！
-
+    patch '/customers/update', to: 'customers#update_status'
     resources :cart_items, only: [:index, :create, :update, :destroy]
      resources :items, only: [:new, :create]
   end
