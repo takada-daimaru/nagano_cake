@@ -1,27 +1,30 @@
 Rails.application.routes.draw do
     # 管理者サイト
   namespace :admins do
+
     get 'orders/history'
-    get 'orders/show'
-    patch 'orders/update'
-    get 'orders/top'
+    get 'orders/:id/show'
+    patch 'orders/:id/update'
+    get 'orders/:id/top'
+
 
     get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-    patch 'customers/update'
+    get 'customers/:id/show'
+    get 'customers/:id/edit'
+    patch 'customers/:id/update'
 
     get 'types/index'
     post 'types/create'
-    get 'types/edit'
-    patch 'types/update'
+    get 'types/:id/edit'
+    patch 'types/:id/update'
+
 
     get 'items/index'
-    get 'items/show'
     get 'items/new'
-    post 'items/create'
-    get 'items/edit'
-    patch 'items/update'
+    post 'items/:id/create'
+    get 'items/:id/show'
+    get 'items/:id/edit'
+    patch 'items/:id/update'
   end
 
   devise_for :admins, controllers: {
