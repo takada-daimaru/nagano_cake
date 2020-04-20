@@ -1,8 +1,8 @@
 <div class="row">
 <h3>ショッピングカート</h3>
-<%= link_to "カートを空にする",customers_cart_items_path %>
+<%= link_to "カートを空にする",customers_cart_items_path, method: :delete %>
 
-<table>
+<table class="table table-hover table-inverse">
 	<thead>
 		<tr>
 			<th>商品名</th>
@@ -15,31 +15,43 @@
 	<tbody>
 		<% @cartitems.each do |cartitem| %>
 		<tr>
+			<% @sum = 0 %>
 			<td>
+
 				<%= cartitem.item.name %>
 			</td>
 			<td>
-				<%= cartitem.item.excluded %>
+				<%= number_to_currency((cartitem.item.excluded).to_i * 1.1, :locale => 'jp') %>
 			</td>
 			<td>
-				<%= cartitem.quontity %>
+				<%= form_for(cartitem , url:customers_cart_item_path(cartitem)) do |f| %>
+				<%= f.number_field :quontity,placeholder:cartitem.quontity %>
+				<%= f.submit "変更" %>
+				<% end %>
 			</td>
-			<td></td>
 			<td>
-				<%= link_to "削除する", customers_cart_items_path(cartitem), method: :delete %>
+				<% @sub_total = (cartitem.item.excluded * cartitem.quontity) * 1.1 %>
+				<%= number_to_currency(@sub_total, :locale => 'jp' )%>
+				<% @sum+= @sub_total %>
+			</td>
+			<td>
+				<%= link_to "削除する", customers_cart_item_path(cartitem), method: :delete %>
 			</td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
 
-<%=link_to "買い物を続ける", root_path %>
-
-<table>
+<table class="table table-hover table-inverse" >
 	<tbody>
 		<tr>
-			<td>合計金額</td>
-			<td>
+			<td><%=link_to "買い物を続ける", root_path %></td>
+			<td></td>
+			<td></td>
+			<td style="text-align: right">合計金額</td>
+			<td style="text-align: center">
+				<%= number_to_currency(@sum, :locale => 'jp' )%>
+			</td>
 		</tr>
 	</tbody>
 	
