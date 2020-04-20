@@ -12,10 +12,11 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @customer = current_customer
     @cartitemnew = CartItem.new
     @types = Type.all
     @item = Item.find(params[:id])
-    
+
   end
 
   def new

@@ -46,17 +46,11 @@ Rails.application.routes.draw do
 
   resource :customers do
     # update :update_status  ここの記述不明です！
-    resources :cart_items, only: [:index, :create, :update, :destroy] # do
-    #   destroy :all_delete   ここの表記不明です！
-  end
-  namespace :admins do
-    resources :customers, only: [:index, :show, :edit, :update]
-    resources :items, only: [:index, :new, :create, :show, :edit, :update]
-    resources :orders, only: [:index, :show, :update]
-    resources :types, only: [:index, :create, :edit, :update]
-  end
 
-  resources :items, only: [:index, :show, :new, :create]
+    resources :cart_items, only: [:index, :create, :update, :destroy] 
+     resources :items, only: [:new, :create]
+
+  resources :items, only: [:index, :show ]
   resources :orders, only: [:new, :create, :index, :show]
   resources :shippings, only: [:index, :create, :destroy, :edit, :update]
 
