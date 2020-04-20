@@ -13,20 +13,20 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% @cart.each do |cart| %>
+		<% @cartitems.each do |cartitem| %>
 		<tr>
 			<td>
-				<%= cart.item.name %>
+				<%= cartitem.item.name %>
 			</td>
 			<td>
-				<%= cart.item.excluded %>
+				<%= cartitem.item.excluded %>
 			</td>
 			<td>
-				<%= cart.item.quontity %>
+				<%= cartitem.quontity %>
 			</td>
 			<td></td>
 			<td>
-				<%= link_to "削除する", customers_cart_items_path(cart), method: :delete %>
+				<%= link_to "削除する", customers_cart_items_path(cartitem), method: :delete %>
 			</td>
 		</tr>
 		<% end %>
