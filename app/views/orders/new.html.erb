@@ -1,84 +1,79 @@
 <div class="row new">
   <h2>注文情報入力</h2>
   
+  <%= form_for @ordernew, url: orders_confirm_path do |f| %>
   <section>
     <h4>支払い方法</h4>
-    <%= form_for @ordernew, url: orders_confirm_path do |f| %>
-      <div class="radio-inline">
-        <%= f.radio_button :payment, :transfer %>
-        <%= f.label :transfer, "銀行振込" %>
-      </div>
+    <div class="radio-inline">
+      <%= f.radio_button :payment, :銀行振込 %>
+      <%= f.label :transfer, "銀行振込" %>
+    </div>
 
-      <div class="radio-inline">
-        <%= f.radio_button :payment, :credit %>
-        <%= f.label :credit, "クレジットカード" %>
-      </div>
-    <% end %>
-
-    <%# <ul>
-      <li>クレジットカード</li>
-      <li>銀行振込</li>
-    </ul> %>
+    <div class="radio-inline">
+      <%= f.radio_button :payment, :クレジットカード %>
+      <%= f.label :credit, "クレジットカード" %>
+    </div>
   </section>
 
   <section>
     <h4>お届け先</h4>
     
-
     <ul>
       <li class="select"> 
-        <p class="form-info">ご自身の住所</p>
+        <%= radio_button_tag :delivery_type, "ご自身の住所", class: "form-info", checked: true %>
+        <%= f.label :address, "ご自身の住所" %>        
         <ul>
-          <li>customerの郵便番号、住所を表示(customers.postcode, customers.address????)</li>
-          <li>customerの名前を表示(customers.name????)</li>
+          <li><%= current_customer.postcode %> <%= current_customer.address %></li>
+          <li><%= "#{current_customer.first_name} #{current_customer.last_name}" %></li>
         </ul>
       </li>
 
-      <li  class="select">
-        <p class="form-info">登録済住所から選択</p>
-        <%= form_for @ordernew, url: orders_confirm_path do |f| %>
-          <%= f.select :address, [["a", "b"], ["c", "d"]], {include_blank: "選択して！"}, {class: "form-control"} %>
-        <% end %>
+      <li class="select">
+        <%= radio_button_tag :delivery_type, "登録済住所から選択", class: "form-info" %>
+        <%= f.label :address, "登録済住所から選択" %>
+        <%= f.select :address, [["a", "b"], ["c", "d"]], {include_blank: "選択して！"}, {class: "form-control"} %>
+
       </li>
       <li class="select">
-        <p class="form-info">新しいお届け先</p>
+        <%= radio_button_tag :delivery_type, "新しいお届け先", class: "form-info" %>
+        <%= f.label :address, "新しいお届け先"%>        
       </li>
     
-      <%= form_for(@shippingnew) do |f| %>
 
-        <div class="fiels row">
-          <div class="col-xs-2">
-            <%= f.label :postcode, "郵便番号(ハイフンなし)" %>
-          </div>
-          <div class="col-xs-10">
-            <%= f.text_field :postcode %>
-          </div>
+      <div class="field row">
+        <div class="col-xs-2">
+          <%= f.label :postcode, "郵便番号(ハイフンなし)" %>  <%# shippingsにも登録したい %>
         </div>
-        
-        <div class="fiels row">
-          <div class="col-xs-2">
-            <%= f.label :address, "住所" %>
-          </div>
-          <div class="col-xs-10">
-            <%= f.text_field :address, :size => "60" %>
-          </div>
+        <div class="col-xs-10">
+          <%= f.text_field :postcode %>
         </div>
-        
-        <div class="fiels row">
-          <div class="col-xs-2">
-            <%= f.label :name, "宛名" %>
-          </div>
-          <div class="col-xs-10">
-            <%= f.text_field :name %>
-          </div>
+      </div>
+      
+      <div class="field row">
+        <div class="col-xs-2">
+          <%= f.label :address, "住所" %>
         </div>
+        <div class="col-xs-10">
+          <%= f.text_field :address, :size => "60" %>
+        </div>
+      </div>
+      
+      <div class="field row">
+        <div class="col-xs-2">
+          <%= f.label :destination, "宛名" %>
+        </div>
+        <div class="col-xs-10">
+          <%= f.text_field :destination %>
+        </div>
+      </div>
 
-        <div class="actions row text-center">
-          <br>
-          <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
-        </div>
-      <% end %>
+      <div class="actions row text-center">
+        <br>
+        <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+      </div>
+
     </ul>
   </section>
+  <% end %>
 
 </div>

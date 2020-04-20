@@ -1,32 +1,39 @@
-<div class="container">
+
 	<div class="row">
-	  <!-- col 指定↓ -->
+		<div class="col-xs-2">
 		<%= render 'items/typeserch', types:@types %>
-	  <!-- col指定↓ -->
-	  	<div class="outline-box">
-	  		<div class="box-in-box">
-				<p>ようこそ、NaganoCakeへ！<br>
-				このサイトは、ケーキ販売のECサイトになります。<br>
-				会員でない方も商品の閲覧はできますが、<br>
-				購入には会員登録が必要になります。
-				</p>
+	  	</div>
+	  	<div class="col-xs-10">
+		  	<div class="outline-box">
+		  		<div class="box-in-box">
+					<p class="top-text">ようこそ、NaganoCakeへ！<br>
+					このサイトは、ケーキ販売のECサイトになります。<br>
+					会員でない方も商品の閲覧はできますが、<br>
+					購入には会員登録が必要になります。
+					</p>
+				</div>
 			</div>
 		</div>
-		<h2>オススメ商品</h2>
 
-		<table>
-			<tr>
-				<% @items.each do |item| %>
-				<td>
-					<%= attachment_image_tag item, :image, format:'jpg',size:'50x50' %>
-					<%= link_to item.name %>
-					<%= item.excluded %>
+	</div>
+	<h2>オススメ商品</h2>
+	<table class="table">
+		<tr>
+			<%  @items.shuffle.first(4).each do |item| %>
+				<td class="col-xs-3 recommend-item">
+					<%= link_to item_path(item) do %>
+						<%= attachment_image_tag item, :image, format:'jpg',size:'180x180', class: "item-link-image" %>
+						<br>
+						<%= item.name %>
+						<br>
+					<%= number_to_currency(item.excluded, :locale => 'jp') %>
+						<br>
+						<br>
+					<% end %>
 
 				</td>
-				<% end %>
-			</tr>
-		</table>
-		<%= link_to "もっと見る>", items_path %>
-	</div>
-</div>
+			<% end %>
+		</tr>
+	</table>
+	<%= link_to "もっと見る>", items_path, class: "pull-right" %>
 
