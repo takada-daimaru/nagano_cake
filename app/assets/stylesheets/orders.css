@@ -1,0 +1,84 @@
+.thanks {
+  margin: 300px;
+}
+
+.thanks .present {
+  display: none;
+}
+
+.thanks .text-active {
+  display: block;
+}
+
+.new li:hover {
+  background-color: transparent;
+}
+
+.new a:hover {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.new section {
+  margin: 30px 0;
+}
+
+.new ul {
+  list-style: none;
+}
+
+.new ul .select:nth-child(2) {
+  margin: 30px 0;
+}
+
+.new ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.new ul li .form-info {
+  font-size: 18px;
+}
+
+.new .field {
+  margin: 3px 0;
+}
+
+.confirm {
+  margin: 100px auto;
+}
+
+.confirm h2 {
+  margin: 30px 0;
+}
+
+.confirm li:hover {
+  background-color: transparent;
+}
+
+.confirm a:hover {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.confirm .table-bordered tr th {
+  height: 80px;
+  vertical-align: middle;
+}
+
+.confirm .table-bordered tr td {
+  height: 80px;
+  vertical-align: middle;
+}
+
+.confirm .payment-address-table {
+  border-collapse: separate;
+  border-spacing: 0 20px;
+}
+
+.confirm .btn {
+  margin-top: 50px;
+}
+/*# sourceMappingURL=orders.css.map */
