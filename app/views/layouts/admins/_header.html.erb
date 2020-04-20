@@ -4,10 +4,10 @@
         <img src="/assets/nagano_cake.png" alt="ロゴ" width="auto" height="70">
         <ul class="nav navbar-nav navbar-right">
           <% if admin_signed_in? %>
-            <li class="nav-link"><%= link_to '管理者だよ！',customers_path(current_customer) %></li>
-            <li class="nav-link"><%= link_to 'できた',items_path %></li>
-            <li class="nav-link"><%= link_to '眠いので',customers_cart_items_path  %></li>
-            <li class="nav-link"><%= link_to '寝ます！', destroy_customer_session_path, method: :delete %></li>
+            <li class="nav-link"><%= link_to '商品一覧',admins_items_index_path %></li>
+            <li class="nav-link"><%= link_to '会員一覧',admins_customers_index_path %></li>
+            <li class="nav-link"><%= link_to '注文履歴一覧',admins_orders_history_path  %></li>
+            <li class="nav-link"><%= link_to 'ジャンル管理', admins_types_index_path %></li>
           <% else %>
 
           <% end %>

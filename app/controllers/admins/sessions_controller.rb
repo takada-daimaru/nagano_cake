@@ -7,7 +7,7 @@ class Admins::SessionsController < Devise::SessionsController
     if customer_signed_in?
       root_url
     else
-      admins_items_top_path
+      admins_orders_top_path
     end
     
   end
