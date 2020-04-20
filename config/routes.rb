@@ -43,13 +43,14 @@ Rails.application.routes.draw do
   get '/orders/thanks', to: 'orders#thanks'
   delete '/customers/cart_items', to: 'cart_items#all_delete'
 
+
   resource :customers do
     # update :update_status  ここの記述不明です！
 
     resources :cart_items, only: [:index, :create, :update, :destroy]
      resources :items, only: [:new, :create]
+  end
 
-end
 resources :types, only: [:index, :create, :show, :edit, :update]
 resources :items, only: [:index, :show ]
 resources :orders, only: [:new, :create, :index, :show]
