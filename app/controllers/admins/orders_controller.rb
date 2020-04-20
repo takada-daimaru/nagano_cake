@@ -9,5 +9,6 @@ class Admins::OrdersController < ApplicationController
   end
 
   def history
+  	@orders = Order.all
   end
 end
