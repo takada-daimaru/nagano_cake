@@ -2,10 +2,10 @@ Rails.application.routes.draw do
     # 管理者サイト
   namespace :admins do
 
-    get 'orders/history', to: 'orders#history'
+    get 'orders', to: 'orders#history'
     get 'orders/:id', to: 'orders#show'
     patch 'orders/:id/update', to: 'orders#update'
-    get 'orders/:id/top', to: 'orders#top'
+    get 'orders/top', to: 'orders#top'
 
 
     get 'customers', to: 'customers#index'
