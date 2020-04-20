@@ -1,28 +1,32 @@
 Rails.application.routes.draw do
+    # 管理者サイト
   namespace :admins do
-    get 'orders/index'
-    get 'orders/id/update'
-    get 'orders/show'
 
-    get 'customers/index'
-    get 'customers/id/edit'
-    get 'customers/id/update'
-    get 'customers/show'
+    get 'orders', to: 'orders#history'
+    get 'orders/:id', to: 'orders#show'
+    patch 'orders/:id/update', to: 'orders#update'
+    get 'orders/top', to: 'orders#top'
 
-    get 'types/index'
-    get 'types/create'
-    get 'types/id/edit'
-    get 'types/id/update'
 
-    get 'items/index'
-    get 'items/new'
-    get 'items/id/create'
-    get 'items/id/edit'
-    get 'items/id/update'
-    get 'items/top'
-    get 'items/show'
+    get 'customers', to: 'customers#index'
+    get 'customers/:id', to: 'customers#show'
+    get 'customers/:id/edit', to: 'customers#edit'
+    patch 'customers/:id/update', to: 'customers#update'
+
+    get 'types', to: 'types#index'
+    post 'types/create', to: 'types#create'
+    get 'types/:id/edit', to: 'types#edit'
+    patch 'types/:id/update', to: 'types#update'
+
+
+    get 'items', to: 'items#index'
+    get 'items/new', to: 'items#new'
+    post 'items/:id/create', to: 'items#create'
+    get 'items/:id', to: 'items#show'
+    get 'items/:id/edit', to: 'items#edit'
+    patch 'items/:id/update', to: 'items#update'
   end
-  
+
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -41,13 +45,12 @@ Rails.application.routes.draw do
   get '/orders/confirm', to: 'orders#confirm'
   get '/orders/thanks', to: 'orders#thanks'
   delete '/customers/cart_items', to: 'cart_items#all_delete'
-  # 管理者サイト
-  get '/admins/orders/history', to: 'admins/orders#history'
+
 
   resource :customers do
     # update :update_status  ここの記述不明です！
 
-    resources :cart_items, only: [:index, :create, :update, :destroy] 
+    resources :cart_items, only: [:index, :create, :update, :destroy]
      resources :items, only: [:new, :create]
   end
 

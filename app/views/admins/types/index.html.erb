@@ -1,19 +1,32 @@
+<h2>ジャンル追加・一覧画面</h2>
 <div class="row">
-  <h3>ジャンル追加・一覧画面</h3>
-  
-  <div class="text-center">
-    <%= form_for @typenew do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+	<div class="field">
+		<%= f.label :type, "ジャンル" %>
+		<%= f.text_field :type %>
+	</div>
 
-      <%= f.radio_button :status, true %>
-      <%= f.label :status, "有効" %>
-      <%= f.radio_button :status, false %>
-      <%= f.label :status, "無効" %>
+	<!-- 選択ボタン作成 -->
 
-      <%= f.submit %>
-    <% end %>
-
-  </div>
-
+	<div class="actions">
+	   <%= f.submit "追加", class: "btn btn-success" %>
+	</div>
 </div>
+
+<table>
+	<thead>
+		<tr>
+			<th>ジャンル</th>
+			<th>状態</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<% @types.each do |type| %>
+				<td><%= type.name %></td>
+				<td><%= type.status %></td>
+				<td><%= link_to "編集する", admins_types_edit_path%></td>
+			<% end %>
+		</tr>
+	</tbody>
+</table>
