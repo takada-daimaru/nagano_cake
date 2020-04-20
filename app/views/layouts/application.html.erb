@@ -12,6 +12,7 @@
   <body style="background-color: ; font-size: 15px;">
     <header>
 
+
       <% if request.fullpath.include? "admin"%>   <%# urlにadminという文字があった場合下記を実行 %>
         <%= render "layouts/admins/header" %>
       <% else %>
