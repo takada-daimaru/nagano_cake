@@ -1,28 +1,29 @@
 Rails.application.routes.draw do
+    # 管理者サイト
   namespace :admins do
-    get 'orders/index'
+    get 'orders/history'
     get 'orders/show'
-    get 'orders/update'
+    patch 'orders/update'
+    get 'orders/top'
 
     get 'customers/index'
     get 'customers/show'
     get 'customers/edit'
-    get 'customers/update'
+    patch 'customers/update'
 
     get 'types/index'
-    get 'types/create'
+    post 'types/create'
     get 'types/edit'
-    get 'types/update'
+    patch 'types/update'
 
     get 'items/index'
     get 'items/show'
     get 'items/new'
-    get 'items/create'
+    post 'items/create'
     get 'items/edit'
-    get 'items/update'
-    get 'items/top'
+    patch 'items/update'
   end
-  
+
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -41,13 +42,11 @@ Rails.application.routes.draw do
   get '/orders/confirm', to: 'orders#confirm'
   get '/orders/thanks', to: 'orders#thanks'
   delete '/customers/cart_items', to: 'cart_items#all_delete'
-  # 管理者サイト
-  get '/admins/orders/history', to: 'admins/orders#history'
 
   resource :customers do
     # update :update_status  ここの記述不明です！
 
-    resources :cart_items, only: [:index, :create, :update, :destroy] 
+    resources :cart_items, only: [:index, :create, :update, :destroy]
      resources :items, only: [:new, :create]
   end
 
