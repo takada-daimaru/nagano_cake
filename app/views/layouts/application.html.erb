@@ -11,29 +11,14 @@
 
   <body style="background-color: ; font-size: 15px;">
     <header>
-      <div class="container relative">
-        <nav>
-          <img src="/assets/nagano_cake.png" alt="ロゴ" width="auto" height="70">
-          <ul class="nav navbar-nav navbar-right">
-            <% if customer_signed_in? %>
-              <li class="nav-link"><%= link_to 'マイページ',customers_path(current_customer) %></li>
-              <li class="nav-link"><%= link_to '商品一覧',items_path %></li>
-              <li class="nav-link"><%= link_to 'カート',customers_cart_items_path  %></li>
-              <li class="nav-link"><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete %></li>
-            <% elsif %>
-              <li class="nav-link"><%= link_to '商品一覧',items_path %></li>
-              <li class="nav-link"><%= link_to '新規登録', new_customer_registration_path %></li>
-              <li class="nav-link"><%= link_to 'ログイン', new_customer_session_path %></li>
-            <% elsif admin_signed_in? %>
-              <li class="nav-link"><%= link_to '商品一覧',items_path %></li>
-              <li class="nav-link"><%= link_to '会員一覧',items_path %></li>
-              <li class="nav-link"><%= link_to '注文履歴一覧',items_path %></li>
-              <li class="nav-link"><%= link_to 'ジャンル管理',items_path %></li>
-            <% else %>
-            <% end %>
-          </ul>
-        </nav>
-      </div>
+
+
+      <% if request.fullpath.include? "admin"%>   <%# urlにadminという文字があった場合下記を実行 %>
+        <%= render "layouts/admins/header" %>
+      <% else %>
+        <%= render "layouts/admins/header" %>
+      <% end %>
+
     </header>
     <div class="container">
       <%= yield %>
