@@ -2,29 +2,29 @@ Rails.application.routes.draw do
     # 管理者サイト
   namespace :admins do
 
-    get 'orders/history'
-    get 'orders/:id/show'
-    patch 'orders/:id/update'
-    get 'orders/:id/top'
+    get 'orders/history', to: 'orders#history'
+    get 'orders/:id', to: 'orders#show'
+    patch 'orders/:id/update', to: 'orders#update'
+    get 'orders/:id/top', to: 'orders#top'
 
 
-    get 'customers/index'
-    get 'customers/:id/show'
-    get 'customers/:id/edit'
-    patch 'customers/:id/update'
+    get 'customers', to: 'customers#index'
+    get 'customers/:id', to: 'customers#show'
+    get 'customers/:id/edit', to: 'customers#edit'
+    patch 'customers/:id/update', to: 'customers#update'
 
-    get 'types/index'
-    post 'types/create'
-    get 'types/:id/edit'
-    patch 'types/:id/update'
+    get 'types', to: 'types#index'
+    post 'types/create', to: 'types#create'
+    get 'types/:id/edit', to: 'types#edit'
+    patch 'types/:id/update', to: 'types#update'
 
 
-    get 'items/index'
-    get 'items/new'
-    post 'items/:id/create'
-    get 'items/:id/show'
-    get 'items/:id/edit'
-    patch 'items/:id/update'
+    get 'items', to: 'items#index'
+    get 'items/new', to: 'items#new'
+    post 'items/:id/create', to: 'items#create'
+    get 'items/:id', to: 'items#show'
+    get 'items/:id/edit', to: 'items#edit'
+    patch 'items/:id/update', to: 'items#update'
   end
 
   devise_for :admins, controllers: {
