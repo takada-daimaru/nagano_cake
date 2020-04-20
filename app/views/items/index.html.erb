@@ -19,14 +19,16 @@
 							<br>
 							<%= item.name %>
 							<br>
-					<%= number_to_currency(item.excluded, :locale => 'jp') %>
+				    		<%= number_to_currency(item.excluded, :locale => 'jp') %>
+							<br>
 						<% end %>
+						</td>
 					<% end %>
-					<br>
-					<%= paginate @items,class:"paginate" %>
-					</td>
 				</tr>
 			</table>
+			<div class="pull-right">
+				<%= paginate @items %>
+			</div>
 		</div>
 	</div>
 </div>
