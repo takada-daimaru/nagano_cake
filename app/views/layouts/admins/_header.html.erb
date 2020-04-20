@@ -1,0 +1,17 @@
+  <header>
+    <div class="container relative">
+      <nav>
+        <img src="/assets/nagano_cake.png" alt="ロゴ" width="auto" height="70">
+        <ul class="nav navbar-nav navbar-right">
+          <% if admin_signed_in? %>
+            <li class="nav-link"><%= link_to '管理者だよ！',customers_path(current_customer) %></li>
+            <li class="nav-link"><%= link_to 'できた',items_path %></li>
+            <li class="nav-link"><%= link_to '眠いので',customers_cart_items_path  %></li>
+            <li class="nav-link"><%= link_to '寝ます！', destroy_customer_session_path, method: :delete %></li>
+          <% else %>
+
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </header>
