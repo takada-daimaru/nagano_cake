@@ -49,9 +49,10 @@ Rails.application.routes.draw do
 
     resources :cart_items, only: [:index, :create, :update, :destroy] 
      resources :items, only: [:new, :create]
-    resources :types, only: [:index, :create, :show, :edit, :update]
-    resources :items, only: [:index, :show ]
-    resources :orders, only: [:new, :create, :index, :show]
-    resources :shippings, only: [:index, :create, :destroy, :edit, :update]
   end
+  resources :types, only: [:index, :create, :show, :edit, :update]
+  resources :items, only: [:index, :show ]
+  resources :orders, only: [:new, :create, :index, :show]
+  resources :shippings, only: [:index, :create, :destroy, :edit, :update]
+
 end
