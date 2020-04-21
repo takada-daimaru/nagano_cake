@@ -135,37 +135,37 @@ Customer.create!(
 Type.create!(
   # id:1
   name: 'ケーキ',
-  status: 'true',
+  status: true,
 )
 
 Type.create!(
   # id:2
   name: 'プリン',
-  status: 'true',
+  status: true,
 )
 
 Type.create!(
   # id:3
   name: '焼き菓子',
-  status: 'true',
+  status: true,
 )
 
 Type.create!(
   # id:4
   name: 'キャンディ',
-  status: 'true',
+  status: true,
 )
 
 Type.create!(
   # id:5
   name: 'クッキー',
-  status: 'true',
+  status: true,
 )
 
 Type.create!(
   # id:6
   name: 'ゼリー',
-  status: 'true',
+  status: true,
 )
 
 Item.create!(
@@ -266,7 +266,7 @@ Order.create!(
 	postcode: "1110035",
 	address: "東京都台東区西浅草",
 	destination: "高田大丸",
-	invoce: 2120,
+	invoice: 2120,
 )
 
 OrderItem.create!(
