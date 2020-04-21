@@ -141,31 +141,31 @@ Type.create!(
 Type.create!(
   # id:2
   name: 'プリン',
-  status: 'false',
+  status: 'true',
 )
 
 Type.create!(
   # id:3
   name: '焼き菓子',
-  status: 'false',
+  status: 'true',
 )
 
 Type.create!(
   # id:4
   name: 'キャンディ',
-  status: 'false',
+  status: 'true',
 )
 
 Type.create!(
   # id:5
   name: 'クッキー',
-  status: 'false',
+  status: 'true',
 )
 
 Type.create!(
   # id:6
   name: 'ゼリー',
-  status: 'false',
+  status: 'true',
 )
 
 Item.create!(
@@ -256,4 +256,23 @@ Item.create!(
   excluded: '980',
   image: File.open('./app/assets/images/items/banana-cake.jpg'),
   status: 0,
+)
+
+Order.create!(
+	customer_id: 1,
+	shipping_cost: 800,
+	payment: 0,
+	status: 0,
+	postcode: "1110035",
+	address: "東京都台東区西浅草",
+	destination: "高田大丸",
+	invoce: 2120,
+)
+
+OrderItem.create!(
+	order_id: 1,
+	item_id: 1,
+	status: 0,
+	quontity: 1,
+	price: 1200,
 )

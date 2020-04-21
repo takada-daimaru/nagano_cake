@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
   end
 
   def confirm
-    @order = Order.new(order_params)
+    @ordernew = Order.new(order_params)
     
     # newページのdelivery_typeの値により保存する情報を変更
     case params[:delivery_type]
@@ -34,14 +34,14 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = current_customer.orders.new(order_params)
+    @ordernew = current_customer.orders.new
     if @order.save!
       current_customer.cart_items.each do |cart_item|
         # 注文商品テーブルにレコードを追加する
         @order_items = OrderItem.new(
           order_id: @order.id,
           item_id: cart_item.item_id,
-          # status: 
+          status: @order.order_item.status,
           quontity: cart_item.quontity,
           price: cart_item.item.excluded,
         )
