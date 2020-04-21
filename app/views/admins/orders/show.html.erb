@@ -1,2 +1,79 @@
-<h1>Admins::Orders#show</h1>
-<p>Find me in app/views/admins/orders/show.html.erb</p>
+<h2>注文詳細画面</h2>
+
+
+		<div class="row">
+			<h3 class="col-xs-2">購入者</h3>
+			<span class="col-xs-10">
+				<%= link_to admins_customer_path(@order.customer) do %>
+					<%= customer.first_name %><%= customer.last_name %>
+				<% end %>
+			</span>
+		</div>
+
+		<div class="row">
+			<h3 class="col-xs-2">配送先</h3>
+			<span class="col-xs-10">
+				<%= @order.postcode %><%= @order.address %><br>
+				<%= @order.destination %>
+			</span>
+		</div>
+
+		<div class="row">
+			<h3 class="col-xs-2">支払方法</h3>
+			<span class="col-xs-10">
+				<%= @order.payment %>
+			</span>
+		</div>
+
+		<div class="row">
+			<h3 class="col-xs-2">注文ステータス</h3>
+			<span class="col-xs-10">
+				<%= form_for(@order) do |f| %>
+					<%= f.select :status, [["入金確認", "入金確認"], ["製作中", "製作中"], ["発送準備中", "発送準備中"], ["発送済み", "発送済み"]], include_blank: "選択して下さい" %>
+					<%= f.submit "更新", class: "btn btn-primary" %>
+				<% end %>
+			</span>
+		</div>
+
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>商品名</th>
+					<th>単価 (税込)</th>
+					<th>数量</th>
+					<th>小計</th>
+					<th>製作ステータス</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @order.each do |order| %>
+					<% form_for order.order_items do |f| %>
+						<tr>
+							<td><% order.order_items.name %></td>
+							<td><% order.order_items.excluded %></td>
+							<td><% order.order_items.cart_items.quontity %></td>
+					<!-- 		<td><% order.item.name %></td>
+							<td><% order.item.name %></td> -->
+							<td><%= f.submit "更新", class: "btn btn-primary" %></td>
+						</tr>
+					<% end %>
+				<% end %>
+			</tbody>
+		</table>
+
+<!--
+		<div class="row">
+			<p class="col-xs-2"><strong>商品合計</strong></p>
+			<p class="col-xs-10"><%= @order.payment %></p>
+		</div>
+		<div class="row">
+			<p class="col-xs-2"><strong>送料</strong></p>
+			<p class="col-xs-10"><%= @order.shipping_cost %></p>
+		</div>
+		<div class="row">
+			<p class="col-xs-2"><strong>請求額合計</strong></p>
+			<p class="col-xs-10"><strong><%= @order.payment %></strong></p>
+		</div> -->
+

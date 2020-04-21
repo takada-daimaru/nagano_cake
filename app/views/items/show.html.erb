@@ -15,7 +15,7 @@
 
 			<%= form_for(@cartitemnew ,url:customers_cart_items_path) do |f| %>
 			<%= hidden_field_tag(:item_id, @item.id) %>
-			<%= f.number_field :quontity, placeholder:'個数を選択してください' %>
+			<%= f.number_field :quontity, placeholder:'個数を選択してください',in: 1..30 %>
 			<%= f.submit 'カートに入れる' %>
 
 			<% end %>

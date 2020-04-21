@@ -18,24 +18,25 @@
 			<tr>
 				<td>
 	
-				<%= cartitem.item.name %>
+					<%= cartitem.item.name %>
 				</td>
 				<td>
-				<%= number_to_currency((cartitem.item.excluded).to_i * 1.1, :locale => 'jp') %>
+					<%= number_to_currency((cartitem.item.excluded).to_i * 1.1, :locale => 'jp') %>
 				</td>
 				<td>
-				<%= form_for(cartitem , url:customers_cart_item_path(cartitem)) do |f| %>
-				<%= f.number_field :quontity,placeholder:cartitem.quontity %>
-				<%= f.submit "変更" %>
-				<% end %>
+					<%= form_for(cartitem , url:customers_cart_item_path(cartitem)) do |f| %>
+					<%= f.number_field :quontity,incrude_brank:cartitem.quontity,in: 0..30 %>
+					<%= f.submit "変更" %>
+					
+					<% end %>
 				</td>
 				<td>
-				<% @sub_total = (cartitem.item.excluded * cartitem.quontity) * 1.1 %>
-				<%= number_to_currency(@sub_total, :locale => 'jp' )%>
-				<% @sum+= @sub_total %>
+					<% @sub_total = (cartitem.item.excluded * cartitem.quontity) * 1.1 %>
+					<%= number_to_currency(@sub_total, :locale => 'jp' )%>
+					<% @sum+= @sub_total %>
 				</td>
 				<td>
-				<%= link_to "削除する", customers_cart_item_path(cartitem), method: :delete %>
+					<%= link_to "削除する", customers_cart_item_path(cartitem), method: :delete %>
 				</td>
 			</tr>
 			<% end %>

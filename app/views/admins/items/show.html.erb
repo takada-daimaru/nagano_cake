@@ -1,2 +1,48 @@
-<h1>Admins::Items#show</h1>
-<p>Find me in app/views/admins/items/show.html.erb</p>
+<h2>商品詳細画面</h2>
+
+<div class="row">
+	<div class="col-xs-4">
+		<%= attachment_image_tag @item, :image, format:'jpg',size:'250x250' %>
+	</div>
+
+	<div class="col-xs-8">
+		<div class="row">
+			<h3 class="col-xs-2">商品名</h3>
+			<span class="col-xs-10">
+				<%= @item.name %>
+			</span>
+		</div>
+
+		<div class="row">
+			<h3 class="col-xs-2">商品説明</h3>
+			<span class="col-xs-10">
+				<%= @item.explanation %>
+			</span>
+		</div>
+
+		<div class="row">
+			<h3 class="col-xs-2">ジャンル</h3>
+			<span class="col-xs-10">
+				<%= @item.type.name %>
+			</span>
+		</div>
+
+		<div class="row">
+			<h3 class="col-xs-4">税込価格(税抜き価格)</h3>
+			<span class="col-xs-8">
+				<%= number_to_currency((@item.excluded).to_i * 1.1, :locale => 'jp') %>
+				(<%= @item.excluded %>)
+			</span>
+		</div>
+
+		<div class="row">
+			<h3 class="col-xs-4">販売ステータス</h3>
+			<span class="col-xs-8">
+				<%= @item.status %>
+			</span>
+		</div>
+		<span class="pull-right">
+			<%= link_to '編集する', edit_admins_item_path, class: "btn btn-primary" %>
+		</span>
+	</div>
+</div>

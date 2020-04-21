@@ -8,6 +8,6 @@ class Customer < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :cart_items, dependent: :destroy
 
-  enum status: { 有効: 0, 退会: 1 }
+  enum status: { 有効: 0, 退会済み: 1 }
 
 end
