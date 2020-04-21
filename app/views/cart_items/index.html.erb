@@ -17,7 +17,7 @@
 			<% @cartitems.each do |cartitem| %>
 			<tr>
 				<td>
-	
+					<%= attachment_image_tag cartitem.item, :image, format:'jpg',size:'50x50' %>
 					<%= cartitem.item.name %>
 				</td>
 				<td>

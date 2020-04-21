@@ -19,14 +19,14 @@ class OrdersController < ApplicationController
     # newページのdelivery_typeの値により保存する情報を変更
     case params[:delivery_type]
       when "ご自身の住所"
-        @order.postcode = current_customer.postcode
-        @order.address = current_customer.address
-        @order.destination = current_customer.last_name
+        @ordernew.postcode = current_customer.postcode
+        @ordernew.address = current_customer.address
+        @ordernew.destination = current_customer.last_name
 
       when "登録済住所から選択"
-        @order.postcode = Shipping.find(shipping_params[:id]).postcode
-        @order.address = Shipping.find(shipping_params[:id]).address
-        @order.destination = Shipping.find(shipping_params[:id]).name
+        @ordernew.postcode = Shipping.find(shipping_params[:id]).postcode
+        @ordernew.address = Shipping.find(shipping_params[:id]).address
+        @ordernew.destination = Shipping.find(shipping_params[:id]).name
 
       when "新しいお届け先"
     
@@ -34,26 +34,27 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @ordernew = current_customer.orders.new
-    if @order.save!
+    @ordernew = Order.new(order_params)
+    @ordernew.customer_id = current_customer.id
+    if @ordernew.save
       current_customer.cart_items.each do |cart_item|
         # 注文商品テーブルにレコードを追加する
         @order_items = OrderItem.new(
-          order_id: @order.id,
+          order_id: @ordernew.id,
           item_id: cart_item.item_id,
-          status: @order.order_item.status,
+          status: 1,
           quontity: cart_item.quontity,
           price: cart_item.item.excluded,
-        )
-
-        @order_items.save!
+          )
+        
+        @order_items.save
       end
-      Delivery.create!(customer_id: current_customer.id, postcode: @order.postcode, address: @order.address, name: @order.destination)
+      Shipping.create(customer_id: current_customer.id, postcode: @ordernew.postcode, address: @ordernew.address, name: @ordernew.destination)
       
       current_customer.cart_items.delete_all
       # 顧客のカート内をデリートしてターンエンド
     end
-    redirect_to thanks_orders_path
+    redirect_to orders_thanks_path
   end
 
   def thanks
