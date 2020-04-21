@@ -17,13 +17,14 @@ class CartItemsController < ApplicationController
   def update
     @cart_item = CartItem.find(params[:id])
     @cart_item.update(cart_item_params)
-    if @cart_item.quontity = 0
+
+    if @cart_item.quontity == 0
       @cart_item.destroy
       redirect_to customers_cart_items_path
     else
     redirect_to customers_cart_items_path
   end
-  end
+end
 
   def destroy
     @cart_item = CartItem.find(params[:id])
