@@ -8,14 +8,16 @@ class CartItemsController < ApplicationController
   def create
     
     @cart_item = CartItem.new(cart_item_params)
-    @cart_item.item_id = params[:item_id]
-    @cart_item.customer_id = current_customer.id
-    if @cart_item.item_id == CartItem.where(item_id:params[:cart_item_params])
-
+    a = params[:item_id]
+    if @item = CartItem.find_by(item_id:params[:item_id])
+      @item.quontity += @cart_item.quontity
+      @item.save
     redirect_to customers_cart_items_path
 
     else
-    @cart_item.save
+    @cart_item.customer_id = current_customer.id
+    @cart_item.item_id = a
+    @cart_item.save!
     redirect_to customers_cart_items_path
   end
   end
