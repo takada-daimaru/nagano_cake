@@ -16,7 +16,6 @@ class ItemsController < ApplicationController
     @cartitemnew = CartItem.new
     @types = Type.all
     @item = Item.find(params[:id])
-
   end
 
   def new
@@ -30,11 +29,9 @@ class ItemsController < ApplicationController
   def top
       @types = Type.all
       @items = Item.all
-
   end
 
   def about
-    
   end
 
   private

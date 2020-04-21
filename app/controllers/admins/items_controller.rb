@@ -29,6 +29,3 @@ class Admins::ItemsController < ApplicationController
 end
 
 end
-
-
-<
