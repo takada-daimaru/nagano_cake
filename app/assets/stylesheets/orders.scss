@@ -20,15 +20,6 @@
 
 // newページ
 .new{
-  
-  li:hover {
-    background-color: transparent;
-  }
-  a:hover {
-    color: black;
-    background-color: transparent;
-    text-decoration: none;
-  }
 
   section {
     margin: 30px 0;
@@ -58,17 +49,8 @@
 
 // confirmページ
 .confirm {
-  margin: 100px auto;
+  margin: 30px auto;
   h2{ margin: 30px 0; }
-
-  li:hover {
-    background-color: transparent;
-  }
-  a:hover {
-    color: black;
-    background-color: transparent;
-    text-decoration: none;
-  }
 
   .table-bordered{
     tr{

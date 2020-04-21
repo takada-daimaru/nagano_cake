@@ -5,12 +5,12 @@
   <section>
     <h4>支払い方法</h4>
     <div class="radio-inline">
-      <%= f.radio_button :payment, :銀行振込 %>
+      <%= f.radio_button :payment, :銀行振込, checked: true %>
       <%= f.label :transfer, "銀行振込" %>
     </div>
 
     <div class="radio-inline">
-      <%= f.radio_button :payment, :クレジットカード %>
+      <%= f.radio_button :payment, :クレジット %>
       <%= f.label :credit, "クレジットカード" %>
     </div>
   </section>
@@ -42,7 +42,7 @@
 
       <div class="field row">
         <div class="col-xs-2">
-          <%= f.label :postcode, "郵便番号(ハイフンなし)" %>  <%# shippingsにも登録したい %>
+          <%= f.label :postcode, "郵便番号(ハイフンなし)" %>
         </div>
         <div class="col-xs-10">
           <%= f.text_field :postcode %>

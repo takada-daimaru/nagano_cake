@@ -13,9 +13,9 @@
 			</tr>
 		</thead>
 			<tbody>
+			<% @sum = 0 %>
 			<% @cartitems.each do |cartitem| %>
 			<tr>
-				<% @sum = 0 %>
 				<td>
 	
 				<%= cartitem.item.name %>
