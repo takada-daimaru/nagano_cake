@@ -10,8 +10,14 @@ class CartItemsController < ApplicationController
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.item_id = params[:item_id]
     @cart_item.customer_id = current_customer.id
+    if @cart_item.item_id == CartItem.where(item_id:params[:cart_item_params])
+
+    redirect_to customers_cart_items_path
+
+    else
     @cart_item.save
     redirect_to customers_cart_items_path
+  end
   end
 
   def update
