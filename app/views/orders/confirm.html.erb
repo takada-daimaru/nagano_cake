@@ -9,34 +9,40 @@
           <th class="col-xs-2">数量</th>
           <th class="col-xs-2">小計</th>
         </tr>
-        <%# @order.each do |o| %>
+        <% @sum = 0 %>
+        <% @total = 0 %>
+        <% current_customer.cart_items.each do |cart_item| %>
           <tr>
-            <%#<td><%= o.item.name %><%#</td>
-            <td><%= o.item.excluded %><%#</td>
-            <td><%= o.item. %><%#</td>
-            <td><%= o.item.name %><%#</td>%>
-            <td>画像＋ケーキ</td>
-            <td>900</td>
-            <td>2</td>
-            <td>1800</td>
+            <td>
+              <%= attachment_image_tag cart_item.item, :image, format:'jpg',size:'50x50' %>
+              <%= cart_item.item.name %>
+            </td>
+            <td><%= cart_item.item.excluded %></td>
+            <td><%= cart_item.quontity %></td>
+            <td><%= "#{number_to_currency((cart_item.item.excluded).to_i * (cart_item.quontity).to_i, :locale => 'jp' )}" %></td>
           </tr>
-        <%# end %>
+          <% @item_quontity = cart_item.quontity%>
+          <% @sub_total = (cart_item.item.excluded * cart_item.quontity) * 1.1 %>
+          <% @sum+= @sub_total %>
+          <% @total += @item_quontity %>
+        <% end %>
 
       </table>
     </div>
   </div>
 
-  <div class="col-xs-3 col-xs-offset-1">
+  <div class="col-xs-4 col-xs-offset-1">
     <div class="alt-table-responsive">
       <table class="table table-bordered">
         <tr>
-          <th>送料</th><td>800</td>
+          <th>送料</th><td><%= number_to_currency(@order.shipping_cost, :locale => 'jp' ) %></td>
         </tr>
         <tr>
-          <th>商品合計</th><td>1,760</td>
+          <th>商品合計</th><td><%= @total %></td>
         </tr>
         <tr>
-          <th>請求金額</th><td>2,560</td>
+          <% @order.invoice = @sum.to_i %>
+          <th>請求金額</th><td><%= number_to_currency(@order.invoice, :locale => 'jp' )%></td>
         </tr>
       </table>
    </div>
@@ -45,16 +51,18 @@
 
   <table class="payment-address-table">
     <tr>
-      <th width="150">支払方法</th><td>クレジットカード（データ持ってくるよ！）</td>
+      <th width="150">支払方法</th><td><%= @order.payment %></td>
     </tr>
     <tr>
-      <th width="150">お届け先</th><td>住所（@order.postcode, @order.address, <br> @order.name)</td>
+      <th width="150">お届け先</th><td><%= @order.postcode %><%= @order.address %><br><%= @order.destination %></td>
     </tr>
   </table>
+
+  
   <div class="text-center">
-    <button class="btn btn-success">
-      <a href="#">注文を確定する</a>
-    </button>
+    <%= form_for(@ordernew) do |f| %>
+    
+    <%= link_to "購入を確定する", orders_path(payment: @order.payment), method: :post, class: "btn btn-success" , customer_id: current_customer.id, shipping_cost: @order.shipping_cost, payment: @order.payment, status: @order.status, postcode: @order.postcode, address: @order.address, destination: @order.destination, invoice: @order.invoice  %>
   </div>
 
 </div>

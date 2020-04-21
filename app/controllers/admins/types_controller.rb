@@ -1,7 +1,9 @@
 class Admins::TypesController < ApplicationController
   def index
+
   	@types = Type.all
   	@typenew = Type.new
+
   end
 
   def create
