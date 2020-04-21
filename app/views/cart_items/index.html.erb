@@ -25,7 +25,7 @@
 				</td>
 				<td>
 					<%= form_for(cartitem , url:customers_cart_item_path(cartitem)) do |f| %>
-					<%= f.number_field :quontity,placeholder:cartitem.quontity,min:0 %>
+					<%= f.number_field :quontity,incrude_brank:cartitem.quontity,in: 0..30 %>
 					<%= f.submit "変更" %>
 					
 					<% end %>
