@@ -1,6 +1,6 @@
 <h1>会員一覧画面</h1>
 
-<table class="table">
+<table class="table col-xs-offset-2 col-xs-8">
 	<thead>
 		<tr>
 			<th>会員ID</th>
@@ -13,7 +13,11 @@
 		<% @customers.each do |customer| %>
 		<tr>
 			<td><%= customer.id %></td>
-			<td><span><%= customer.first_name %><%= customer.last_name %></span></td>
+			<td>
+				<%= link_to admins_customer_path(customer) do %>
+					<span><%= customer.first_name %><%= customer.last_name %></span>
+				<% end %>
+			</td>
 			<td><%= customer.email %></td>
 			<td><%= customer.status %></td>
 		</tr>

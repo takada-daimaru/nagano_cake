@@ -1,2 +1,47 @@
-<h1>Admins::Customers#show</h1>
-<p>Find me in app/views/admins/customers/show.html.erb</p>
+<h2>会員詳細画面</h2>
+<div class="row">
+	<h3 class="col-xs-2">顧客ID</h3>
+	<span class="col-xs-10">
+		<%= @customer.id %>　<span class="statusmark"><%= @customer.status %></span>
+	</span>
+</div>
+<div class="row">
+	<h3 class="col-xs-2">氏名</h3>
+	<span class="col-xs-10">
+		<%= @customer.first_name %>　<%= @customer.last_name %>
+	</span>
+</div>
+<div class="row">
+	<h3 class="col-xs-2">フリガナ</h3>
+	<span class="col-xs-10">
+		<%= @customer.first_name_kana %>　<%= @customer.last_name_kana %>
+	</span>
+</div>
+<div class="row">
+	<h3 class="col-xs-2">郵便番号</h3>
+	<span class="col-xs-10">
+		<%= @customer.postcode %>
+	</span>
+</div>
+<div class="row">
+	<h3 class="col-xs-2">住所</h3>
+	<span class="col-xs-10">
+		<%= @customer.address %>
+	</span>
+</div>
+<div class="row">
+	<h3 class="col-xs-2">電話番号</h3>
+	<span class="col-xs-10">
+		<%= @customer.phone_number %>
+	</span>
+</div>
+<div class="row">
+	<h3 class="col-xs-2">メールアドレス</h3>
+	<span class="col-xs-10">
+		<%= @customer.email %>
+	</span>
+</div>
+<span>
+	<%= link_to '編集する', edit_admins_customer_path, class: "btn btn-primary" %>
+	<%= link_to '注文履歴一覧を見る', admins_customers_path, class: "btn btn-primary" %>
+</span>
