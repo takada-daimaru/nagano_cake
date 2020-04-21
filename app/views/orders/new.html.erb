@@ -17,7 +17,7 @@
 
   <section>
     <h4>お届け先</h4>
-    
+
     <ul>
       <li class="select"> 
         <%= radio_button_tag :delivery_type, "ご自身の住所", class: "form-info", checked: true %>
@@ -69,6 +69,7 @@
 
       <div class="actions row text-center">
         <br>
+        <% binding.pry %>
         <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
       </div>
 
