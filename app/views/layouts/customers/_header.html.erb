@@ -3,6 +3,7 @@
     <img src="/assets/nagano_cake.png" alt="ロゴ" width="auto" height="70">
     <ul class="nav navbar-nav navbar-right">
       <% if customer_signed_in? %>
+        <li class="nav-link">~ようこそ <%= current_customer.first_name %><%= current_customer.last_name %> 様~</span></li>
         <li class="nav-link"><%= link_to 'マイページ',customers_path(current_customer) %></li>
         <li class="nav-link"><%= link_to '商品一覧',items_path %></li>
         <li class="nav-link"><%= link_to 'カート',customers_cart_items_path(current_customer)  %></li>
