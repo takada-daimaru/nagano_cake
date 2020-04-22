@@ -1,0 +1,121 @@
+<div class="row">
+  <div class="col-xs-9 col-xs-offset-3">
+    <h2>登録情報編集</h2>
+  </div>
+</div>
+
+<%= form_for(@customer) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="row">
+    <div class="field">
+      <div class="col-xs-2 col-xs-offset-1">
+        <strong>名前</strong>
+      </div>
+      <div class="col-xs-4">
+        <%= f.label :first_name, "(姓)", class: "col-xs-3" %>
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "col-xs-7" %>
+      </div>
+      <div class="col-xs-5">
+        <%= f.label :last_name, "(名)", class: "col-xs-2" %>
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "col-xs-6" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <div class="col-xs-2 col-xs-offset-1">
+        <strong>フリガナ</strong>
+      </div>
+      <div class="col-xs-4">
+        <%= f.label :first_name_kana, "(セイ)", class: "col-xs-3" %>
+        <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", class: "col-xs-7" %>
+      </div>
+      <div class="col-xs-5">
+        <%= f.label :last_name_kana, "(メイ)", class: "col-xs-2" %>
+        <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", class: "col-xs-6" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <div class="col-xs-2 col-xs-offset-1">
+        <%= f.label :email, "メールアドレス" %>
+      </div>
+      <div class="col-xs-4">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-xs-7 col-xs-offset-3" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <div class="col-xs-2 col-xs-offset-1">
+        <%= f.label :postcode, "郵便番号" %>
+        <em>(ハイフンなし)</em>
+      </div>
+      <div class="col-xs-4">
+        <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode", class: "col-xs-7 col-xs-offset-3" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <div class="col-xs-2 col-xs-offset-1">
+        <%= f.label :address, "住所" %>
+      </div>
+      <div class="col-xs-4">
+        <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "col-xs-9 col-xs-offset-3" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <div class="col-xs-2 col-xs-offset-1">
+        <%= f.label :phone_number, "電話番号" %>
+        <em>(ハイフンなし)</em>
+      </div>
+      <div class="col-xs-4">
+        <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "col-xs-7 col-xs-offset-3" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <div class="col-xs-2 col-xs-offset-1">
+        <%= f.label :password, "パスワード" %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %>文字以上)</em>
+        <% end %>
+      </div>
+      <div class="col-xs-4">
+        <%= f.password_field :password, autocomplete: "new-password", class: "col-xs-7 col-xs-offset-3" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <div class="col-xs-2 col-xs-offset-1">
+        <%= f.label :password_confirmation, "パスワード" %>
+        <em>(確認用)</em>
+      </div>
+      <div class="col-xs-4">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-xs-7 col-xs-offset-3" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="actions">
+       <%= f.submit "編集内容を確認する", class: "btn btn-success col-xs-2 col-xs-offset-5" %>
+    </div>
+  </div>
+<% end %>
+
+
