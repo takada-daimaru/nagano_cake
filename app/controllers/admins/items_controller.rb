@@ -25,9 +25,12 @@ class Admins::ItemsController < ApplicationController
     redirect_to item_path
   end
 
+
+  private
+
   def items_params
-    params.require(:item).permit(:name, :explanation, :excluded, :image, :status)
-end
+    params.require(:item).permit(:name, :explanation, :excluded, :image, :status )
+  end
 
 end
 

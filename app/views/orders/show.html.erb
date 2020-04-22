@@ -9,7 +9,7 @@
         <table class="table table-bordered">
           <tr>
             <th class="col-xs-4">注文日</th>
-            <td class="col-xs-8"><%= @order.created_at strftime("%Y/%m/%d") %></td>
+            <td class="col-xs-8"><%= @order.created_at.strftime("%Y/%m/%d") %></td>
           </tr>
           <tr>
             <th class="col-xs-4">発送日</th>
@@ -63,14 +63,14 @@
         <th width="60px">個数</th>
         <th width="60px">小計</th>
       </tr>
-      <%= @orders.each do |order| %>
-        <tr>
-          <td><%= order.order_item.item.name %></td>
-          <td><%= "#{order.order_item.prece}円" %></td>
-          <td><%= "#{order.order_item.quontity}個" %></td>
-          <td><%= "#{(order.order_item.prece).to_i * (order.order_item.quontity).to_i}円" %></td>
-        </tr>
-      <% end %>
+      <tr>
+        <td><%= @order.order_items.items.name %></td>
+        <td><%= number_to_currency((@order.order_items.price).to_i :locale => 'jp') %></td>
+        <%# priceが複数あり、データを持ってこれてない！→ model等で数を足してから表示！ %>
+        <%# orderの情報は持ってきてるけど、itemの情報持ってこれてない? %>
+        <td><%= "#{@order.order_items.quontity}個" %></td>
+        <td><%= "#{(@order.order_items.price).to_i * (@order.order_item.quontity).to_i}円" %></td>
+      </tr>
     </table>
   </div>
 </div>

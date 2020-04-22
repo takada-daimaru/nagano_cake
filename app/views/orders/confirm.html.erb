@@ -35,14 +35,14 @@
     <div class="alt-table-responsive">
       <table class="table table-bordered">
         <tr>
-          <th>送料</th><td><%= number_to_currency(@order.shipping_cost, :locale => 'jp' ) %></td>
+          <th>送料</th><td><%= number_to_currency(@ordernew.shipping_cost, :locale => 'jp' ) %></td>
         </tr>
         <tr>
           <th>商品合計</th><td><%= @total %></td>
         </tr>
         <tr>
-          <% @order.invoice = @sum.to_i %>
-          <th>請求金額</th><td><%= number_to_currency(@order.invoice, :locale => 'jp' )%></td>
+          <% @ordernew.invoice = @sum.to_i + @ordernew.shipping_cost %>
+          <th>請求金額</th><td><%= number_to_currency(@ordernew.invoice, :locale => 'jp' )%></td>
         </tr>
       </table>
    </div>
@@ -51,18 +51,22 @@
 
   <table class="payment-address-table">
     <tr>
-      <th width="150">支払方法</th><td><%= @order.payment %></td>
+      <th width="150">支払方法</th><td><%= @ordernew.payment %></td>
     </tr>
     <tr>
-      <th width="150">お届け先</th><td><%= @order.postcode %><%= @order.address %><br><%= @order.destination %></td>
+      <th width="150">お届け先</th><td><%= @ordernew.postcode %><%= @ordernew.address %><br><%= @ordernew.destination %></td>
     </tr>
   </table>
 
-  
   <div class="text-center">
-    <%= form_for(@ordernew) do |f| %>
-    
-    <%= link_to "購入を確定する", orders_path(payment: @order.payment), method: :post, class: "btn btn-success" , customer_id: current_customer.id, shipping_cost: @order.shipping_cost, payment: @order.payment, status: @order.status, postcode: @order.postcode, address: @order.address, destination: @order.destination, invoice: @order.invoice  %>
+    <%= form_for @ordernew do |f| %>
+      <%= f.hidden_field :payment, :value => @ordernew.payment %>
+      <%= f.hidden_field :postcode, :value => @ordernew.postcode %>
+      <%= f.hidden_field :address, :value => @ordernew.address %>
+      <%= f.hidden_field :destination, :value => @ordernew.destination %>
+      <%= f.hidden_field :invoice, :value => @ordernew.invoice %>
+      <%= f.submit "購入を確定する", class: "btn btn-success" %>
+    <% end %>
   </div>
 
 </div>

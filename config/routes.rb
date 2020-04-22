@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   delete '/customers/cart_items', to: 'cart_items#all_delete'
 
 
-  resource :customers do
+  resources :customers do
     # update :update_status  ここの記述不明です！
     patch '/customers/update', to: 'customers#update_status'
     resources :cart_items, only: [:index, :create, :update, :destroy]
