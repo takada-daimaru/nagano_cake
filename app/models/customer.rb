@@ -18,4 +18,6 @@ class Customer < ApplicationRecord
 
   enum status: { 有効: 0, 退会済み: 1 }
 
+  attr_accessor :current_password
+
 end
