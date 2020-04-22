@@ -1,4 +1,5 @@
 class CartItemsController < ApplicationController
+  before_action :authenticate_customer!
   def index
     @cartitems = CartItem.all
 
@@ -12,7 +13,7 @@ class CartItemsController < ApplicationController
     if @item = CartItem.find_by(item_id:params[:item_id])
       @item.quontity += @cart_item.quontity
       @item.save
-    redirect_to customer_cart_items_path(current_customer)
+    redirect_to customers_cart_items_path
 
     else
     @cart_item.customer_id = current_customer.id
