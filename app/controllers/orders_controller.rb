@@ -11,11 +11,11 @@ class OrdersController < ApplicationController
 
   def new
     @ordernew = Order.new
+    @shippings = Shipping.all
   end
 
   def confirm
     @ordernew = Order.new(order_params)
-    
     # newページのdelivery_typeの値により保存する情報を変更
     case params[:delivery_type]
       when "ご自身の住所"
@@ -67,7 +67,7 @@ class OrdersController < ApplicationController
     end
 
     def shipping_params
-      params.require(:order).require(:shipping).permit(:id)
+      params.require(:order).permit(:id)
     end
 
 end
