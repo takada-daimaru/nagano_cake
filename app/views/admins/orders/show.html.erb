@@ -34,48 +34,53 @@
 				<% end %>
 			</span>
 		</div>
-
-
-		<table class="table">
-			<thead>
-				<tr>
-					<th>商品名</th>
-					<th>単価 (税込)</th>
-					<th>数量</th>
-					<th>小計</th>
-					<th>製作ステータス</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<% @order.order_items.each do |order_item| %>
-					<tr>
-						<td><% order_item.item.name %></td>
-						<td><% order_item.item.excluded %></td>
-						<td><% order_item.quontity %></td>
-						<td><% order_item.item.excluded * order_item.quontity %></td>
-						
-			<%= form_for(order , url:admins_order_item_path(order.id)) do |f| %>
-						<td><%= f.select :status, [["着手不可", "着手不可"], ["製作待ち", "製作待ち"], ["試作中", "試作中"], ["製作完了", "製作完了"]], include_blank: "選択して下さい" %>
-						</td>
-						<td><%= f.submit "更新", class: "btn btn-primary" %></td>
-						<% end %>
-					</tr>
+		<div class="row">
+			<div class="col-xs-9">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>商品名</th>
+							<th>単価 (税込)</th>
+							<th>数量</th>
+							<th>小計</th>
+							<th>製作ステータス</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<% total = 0 %>
+						<% @order.order_items.each do |order_item| %>
+							<tr>
+								<td><% order_item.item.name %></td>
+								<td><% order_item.item.excluded * 1.1 %></td>
+								<td><% order_item.quontity %></td>
+								<td><% order_item.item.excluded * order_item.quontity %></td>
+					<%= form_for(order_item , url:admins_order_item_path(order_item.id)) do |f| %>
+								<td><%= f.select :status, [["着手不可", "着手不可"], ["製作待ち", "製作待ち"], ["試作中", "試作中"], ["製作完了", "製作完了"]], include_blank: "選択して下さい" %>
+								</td>
+								<td><%= f.submit "更新", class: "btn btn-primary" %></td>
+								<% end %>
+							</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-xs-3">
+				<div>
+					<span><strong>商品合計</strong></span>
+					<span>
+						<% order_item.item.excluded * order_item.quontity %>
+						<% total = order_item.item.excluded * order_item.quontity + total %>
+						<%= total %>円
+					</span>
+				</div>
+				<div>
+					<span><strong>送料</strong></span>
+					<span><%= @order.shipping_cost %>円</span>
+				</div>
+				<div class="order">
+					<span><strong>請求額合計</strong></span>
+					<span><strong><%= @order.shipping_cost + total %>円</strong></span>
+				</div>
 				<% end %>
-			</tbody>
-		</table>
-
-<!--
-		<div class="row">
-			<p class="col-xs-2"><strong>商品合計</strong></p>
-			<p class="col-xs-10"><%= @order.payment %></p>
+			</div>
 		</div>
-		<div class="row">
-			<p class="col-xs-2"><strong>送料</strong></p>
-			<p class="col-xs-10"><%= @order.shipping_cost %></p>
-		</div>
-		<div class="row">
-			<p class="col-xs-2"><strong>請求額合計</strong></p>
-			<p class="col-xs-10"><strong><%= @order.payment %></strong></p>
-		</div> -->
-
