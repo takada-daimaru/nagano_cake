@@ -18,7 +18,7 @@ class CartItemsController < ApplicationController
     @cart_item.customer_id = current_customer.id
     @cart_item.item_id = a
     @cart_item.save!
-    redirect_to customer_cart_items_path(current_customer)
+    redirect_to customers_cart_items_path
   end
   end
 
@@ -30,14 +30,14 @@ class CartItemsController < ApplicationController
       @cart_item.destroy
       redirect_to customers_cart_items_path
     else
-    redirect_to customer_cart_items_path(current_customer)
+    redirect_to customers_cart_items_path
   end
 end
 
   def destroy
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
-    redirect_to customer_cart_items_path(current_customer)
+    redirect_to customers_cart_items_path
     
   end
 
