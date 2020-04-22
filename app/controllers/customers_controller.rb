@@ -20,6 +20,10 @@ class CustomersController < ApplicationController
     
   end
 
+  def status
+    
+  end
+
   private
 
   
