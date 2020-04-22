@@ -1,1 +1,16 @@
-/* No CSS *//*# sourceMappingURL=customers.css.map */
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.statusmark {
+  background-color: navy;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=customers.css.map */

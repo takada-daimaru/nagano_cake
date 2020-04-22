@@ -71,7 +71,7 @@
           <td><%= order_item.item.name %></td>
           <td><%= number_to_currency((order_item.price).to_i, :locale => 'jp') %></td>
           <td><%= "#{order_item.quontity}個" %></td>
-          <td><%= "#{(order_item.price).to_i * (order_item.quontity).to_i}円" %></td>
+          <td><%= number_to_currency(((order_item.price).to_i * (order_item.quontity).to_i), :locale => 'jp') %></td>
         </tr>
       <% end %>
     </table>
