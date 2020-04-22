@@ -10,16 +10,6 @@
   display: block;
 }
 
-.new li:hover {
-  background-color: transparent;
-}
-
-.new a:hover {
-  color: black;
-  background-color: transparent;
-  text-decoration: none;
-}
-
 .new section {
   margin: 30px 0;
 }
@@ -46,21 +36,11 @@
 }
 
 .confirm {
-  margin: 100px auto;
+  margin: 30px auto;
 }
 
 .confirm h2 {
   margin: 30px 0;
-}
-
-.confirm li:hover {
-  background-color: transparent;
-}
-
-.confirm a:hover {
-  color: black;
-  background-color: transparent;
-  text-decoration: none;
 }
 
 .confirm .table-bordered tr th {
