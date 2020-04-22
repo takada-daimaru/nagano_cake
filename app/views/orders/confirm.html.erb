@@ -41,7 +41,7 @@
           <th>商品合計</th><td><%= @total %></td>
         </tr>
         <tr>
-          <% @ordernew.invoice = @sum.to_i %>
+          <% @ordernew.invoice = @sum.to_i + @ordernew.shipping_cost %>
           <th>請求金額</th><td><%= number_to_currency(@ordernew.invoice, :locale => 'jp' )%></td>
         </tr>
       </table>
@@ -58,14 +58,13 @@
     </tr>
   </table>
 
-<% binding.pry %>
   <div class="text-center">
-    <%= form_for @ordernew, url: orders_path do |f| %>
-      <%= f.hiden_field :payment, :value => f.payment %>
-      <%= f.hiden_field :postcode, :value => f.postcode %>
-      <%= f.hiden_field :address, :value => f.address %>
-      <%= f.hiden_field :destination, :value => f.destination %>
-      <%= f.hiden_field :invoice, :value => f.invoice %>
+    <%= form_for @ordernew do |f| %>
+      <%= f.hidden_field :payment, :value => @ordernew.payment %>
+      <%= f.hidden_field :postcode, :value => @ordernew.postcode %>
+      <%= f.hidden_field :address, :value => @ordernew.address %>
+      <%= f.hidden_field :destination, :value => @ordernew.destination %>
+      <%= f.hidden_field :invoice, :value => @ordernew.invoice %>
       <%= f.submit "購入を確定する", class: "btn btn-success" %>
     <% end %>
   </div>
