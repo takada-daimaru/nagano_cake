@@ -19,14 +19,14 @@ class OrdersController < ApplicationController
     # newページのdelivery_typeの値により保存する情報を変更
     case params[:delivery_type]
       when "ご自身の住所"
-        @order.postcode = current_customer.postcode
-        @order.address = current_customer.address
-        @order.destination = current_customer.last_name
+        @ordernew.postcode = current_customer.postcode
+        @ordernew.address = current_customer.address
+        @ordernew.destination = current_customer.last_name
 
       when "登録済住所から選択"
-        @order.postcode = Shipping.find(shipping_params[:id]).postcode
-        @order.address = Shipping.find(shipping_params[:id]).address
-        @order.destination = Shipping.find(shipping_params[:id]).name
+        @ordernew.postcode = Shipping.find(shipping_params[:id]).postcode
+        @ordernew.address = Shipping.find(shipping_params[:id]).address
+        @ordernew.destination = Shipping.find(shipping_params[:id]).name
 
       when "新しいお届け先"
     
