@@ -21,7 +21,7 @@
 					<%= cartitem.item.name %>
 				</td>
 				<td>
-					<%= number_to_currency((cartitem.item.excluded).to_i * 1.1, :locale => 'jp') %>
+					<%= ((cartitem.item.excluded).to_i * 1.1).floor(0).to_s(:delimited, delimiter: ',') %>
 				</td>
 				<td>
 					<%= form_for(cartitem, url:customers_cart_item_path(cartitem)) do |f| %>
@@ -32,7 +32,7 @@
 				</td>
 				<td>
 					<% @sub_total = (cartitem.item.excluded * cartitem.quontity) * 1.1 %>
-					<%= number_to_currency(@sub_total, :locale => 'jp' )%>
+					<%= (@sub_total).to_i.floor(0).to_s(:delimited, delimiter: ',') %>
 					<% @sum+= @sub_total %>
 				</td>
 				<td>

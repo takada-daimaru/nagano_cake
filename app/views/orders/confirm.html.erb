@@ -19,9 +19,10 @@
                 <%= attachment_image_tag cart_item.item, :image, format:'jpg',size:'50x50' %>
                 <%= cart_item.item.name %>
               </td>
-              <td><%= cart_item.item.excluded %></td>
+
+              <td><%= (((cart_item.item.excluded).to_i)*1.1).floor(0).to_s(:delimited, delimiter: ',') %></td>
               <td><%= cart_item.quontity %></td>
-              <td><%= "#{number_to_currency((cart_item.item.excluded).to_i * (cart_item.quontity).to_i, :locale => 'jp' )}" %></td>
+              <td><%= "#{(((cart_item.item.excluded).to_i)*1.1)*(cart_item.quontity).to_i}".to_i.floor(0).to_s(:delimited, delimiter: ',').to_s %></td>
             </tr>
             <% @item_quontity = cart_item.quontity%>
             <% @sub_total = (cart_item.item.excluded * cart_item.quontity) * 1.1 %>
@@ -37,7 +38,7 @@
       <div class="alt-table-responsive">
         <table class="table table-bordered">
           <tr>
-            <th>送料</th><td><%= number_to_currency(@ordernew.shipping_cost, :locale => 'jp' ) %></td>
+            <th>送料</th><td><%= (@ordernew.shipping_cost).to_s %></td>
           </tr>
           <tr>
             <th>商品合計</th><td><%= @total %></td>
