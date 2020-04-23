@@ -12,7 +12,17 @@ class Admins::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
+
+   if @order.status == "入金確認"
+
+     @order.order_items.each do |order|
+     order.update(status: "製作待ち") 
+     end
+     redirect_to admins_orders_path
+
+    else
     redirect_to admins_orders_path
+    end
   end
 
   def history
@@ -23,4 +33,7 @@ class Admins::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:status)
   end
+
+
 end
+
