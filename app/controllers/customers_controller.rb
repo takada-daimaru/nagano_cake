@@ -24,7 +24,12 @@ class CustomersController < ApplicationController
     redirect_to root_path
   end
 
-  def update_
+  def status
+    
+  end
+
+  def update_status
+
   end
 
 private

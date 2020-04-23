@@ -36,7 +36,8 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :create, :update, :destroy]
    
   end
-  patch '/customers/update', to: 'customers#update_status'
+  get '/customers/status', to: 'customers#update_status'
+  patch '/customers/status', to: 'customers#update_status'
   get '/customer/edit', to:"customers#edit"
   patch '/customer/edit', to:"customers#update"
   put '/customer/edit', to:"customers#update"
