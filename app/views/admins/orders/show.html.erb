@@ -1,40 +1,40 @@
 <h2>注文詳細画面</h2>
 
 
-		<div class="row">
-			<h3 class="col-xs-2">購入者</h3>
-			<span class="col-xs-10">
+		<div class="row flex">
+			<h3 class="col-xs-3">購入者</h3>
+			<span class="col-xs-9">
 				<%= link_to admins_customer_path(@order.customer) do %>
 					<%= @order.customer.first_name %><%= @order.customer.last_name %>
 				<% end %>
 			</span>
 		</div>
 
-		<div class="row">
-			<h3 class="col-xs-2">配送先</h3>
-			<span class="col-xs-10">
-				〒<%= @order.postcode %><%= @order.address %><br>
+		<div class="row flex">
+			<h3 class="col-xs-3">配送先</h3>
+			<span class="col-xs-9">
+				〒<%= @order.postcode.insert(3, "-") %><%= @order.address %><br>
 				<%= @order.destination %>
 			</span>
 		</div>
 
-		<div class="row">
-			<h3 class="col-xs-2">支払方法</h3>
-			<span class="col-xs-10">
+		<div class="row flex">
+			<h3 class="col-xs-3">支払方法</h3>
+			<span class="col-xs-9">
 				<%= @order.payment %>
 			</span>
 		</div>
 
-		<div class="row">
-			<h3 class="col-xs-2">注文ステータス</h3>
-			<span class="col-xs-10">
-				<%= form_for(@order) do |f| %>
+		<div class="row flex">
+			<h3 class="col-xs-3">注文ステータス</h3>
+			<span class="col-xs-9">
+				<%= form_for @order, url: admins_order_path(@order.id) do |f| %>
 					<%= f.select :status, [["入金確認", "入金確認"], ["製作中", "製作中"], ["発送準備中", "発送準備中"], ["発送済み", "発送済み"]], include_blank: "選択して下さい" %>
 					<%= f.submit "更新", class: "btn btn-primary" %>
 				<% end %>
 			</span>
 		</div>
-		<div class="row">
+		<div class="row price">
 			<div class="col-xs-9">
 				<table class="table">
 					<thead>
