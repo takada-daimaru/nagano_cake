@@ -1,59 +1,56 @@
-<div class="new">
+<div class="show row">
   <h2>注文履歴詳細</h2>
-  <div class="row">
 
 
-    <div class="col-xs-8">
-      <h3>注文情報</h3>
-      <div class="alt-table-responsive">
-        <table class="table table-bordered">
-          <tr>
-            <th class="col-xs-4">注文日</th>
-            <td class="col-xs-8"><%= @order.created_at strftime("%Y/%m/%d") %></td>
-          </tr>
-          <tr>
-            <th class="col-xs-4">発送日</th>
-            <td height="80px"class="col-xs-8">
-              <%= @order.postcode %><br>
-              <%= @order.address %><br>
-              <%= @order.destination %>
-            </td>
-          </tr>
-          <tr>
-            <th class="col-xs-4">支払方法</th>
-            <td class="col-xs-8"><%= @order.payment %></td>
-          </tr>
-          <tr>
-            <th class="col-xs-4">ステータス</th>
-            <td class="col-xs-8"><%= @order.status %></td>
-          </tr>
-        </table>
-      </div>
+  <div class="col-xs-8">
+    <h3>注文情報</h3>
+    <div class="alt-table-responsive">
+      <table class="table table-bordered">
+        <tr>
+          <th class="col-xs-4">注文日</th>
+          <td class="col-xs-8"><%= @order.created_at.strftime("%Y/%m/%d") %></td>
+        </tr>
+        <tr>
+          <th class="col-xs-4">発送日</th>
+          <td height="80px"class="col-xs-8">
+            <%= @order.postcode %><br>
+            <%= @order.address %><br>
+            <%= @order.destination %>
+          </td>
+        </tr>
+        <tr>
+          <th class="col-xs-4">支払方法</th>
+          <td class="col-xs-8"><%= @order.payment %></td>
+        </tr>
+        <tr>
+          <th class="col-xs-4">ステータス</th>
+          <td class="col-xs-8"><%= @order.status %></td>
+        </tr>
+      </table>
     </div>
-
-
-    <div class="col-xs-4">
-      <h3>請求情報</h3>
-      <div class="alt-table-responsive">
-        <table class="table table-bordered">
-          <tr>
-            <th class="col-xs-6">商品合計</th>
-            <td class="col-xs-6"><%= @order.invoice %></td>
-          </tr>
-          <tr>
-            <th class="col-xs-6">配送料</th>
-            <td class="col-xs-6"><%= @order.shipping_cost %></td>
-          </tr>
-          <tr>
-            <th class="col-xs-6">ご請求額</th>
-            <td class="col-xs-6"><%= (@order.invoice).to_i + (@order.shipping_cost).to_i %></td>
-          </tr>
-        </table>
-      </div>
-    </div>
-
-    
   </div>
+
+
+  <div class="col-xs-4">
+    <h3>請求情報</h3>
+    <div class="alt-table-responsive">
+      <table class="table table-bordered">
+        <tr>
+          <th class="col-xs-6">商品合計</th>
+          <td class="col-xs-6"><%= number_to_currency(@order.invoice, :locale => 'jp') %></td>
+        </tr>
+        <tr>
+          <th class="col-xs-6">配送料</th>
+          <td class="col-xs-6"><%= number_to_currency(@order.shipping_cost, :locale => 'jp') %></td>
+        </tr>
+        <tr>
+          <th class="col-xs-6">ご請求額</th>
+          <td class="col-xs-6"><%= number_to_currency(((@order.invoice).to_i + (@order.shipping_cost).to_i), :locale => 'jp') %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
   <div class="row">
     <h3>注文情報</h3>
     <table class="table table-bordered">
@@ -63,12 +60,15 @@
         <th width="60px">個数</th>
         <th width="60px">小計</th>
       </tr>
-      <%= @orders.each do |order| %>
+
+
+
+      <% @order.order_items.each do |order_item| %>
         <tr>
-          <td><%= order.order_item.item.name %></td>
-          <td><%= "#{order.order_item.prece}円" %></td>
-          <td><%= "#{order.order_item.quontity}個" %></td>
-          <td><%= "#{(order.order_item.prece).to_i * (order.order_item.quontity).to_i}円" %></td>
+          <td><%= order_item.item.name %></td>
+          <td><%= number_to_currency((order_item.price * 1.1).to_i, :locale => 'jp') %></td>
+          <td><%= "#{order_item.quontity}個" %></td>
+          <td><%= number_to_currency(((order_item.price * 1.1).to_i * (order_item.quontity).to_i), :locale => 'jp') %></td>
         </tr>
       <% end %>
     </table>
