@@ -18,21 +18,7 @@
 				<% end %>
 			</td>
 			<td><span><%= order.customer.first_name %><%= order.customer.last_name %></span></td>
-			<td>
-        
-					<% total = 0 %>
-				<% order.order_items.each do |order_items| %>
-					<% order_items.quontity %>
-					<% total = order_items.quontity + total %>
-				<% end %>
-				<%= total %>
-			</td>
-
-
-
 			<td><%= order.order_items.sum(:quontity) %></td>
-
-      
 			<td><%= order.status %></td>
 		</tr>
 		<% end %>
