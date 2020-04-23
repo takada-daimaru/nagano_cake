@@ -39,7 +39,7 @@ end
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
     redirect_to customers_cart_items_path
-    
+
   end
 
   def all_delete
@@ -48,7 +48,7 @@ end
     redirect_to items_path
 
   end
-  
+
   private
 
   def cart_item_params
