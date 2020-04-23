@@ -66,9 +66,9 @@
       <% @order.order_items.each do |order_item| %>
         <tr>
           <td><%= order_item.item.name %></td>
-          <td><%= number_to_currency((order_item.price).to_i, :locale => 'jp') %></td>
+          <td><%= number_to_currency((order_item.price * 1.1).to_i, :locale => 'jp') %></td>
           <td><%= "#{order_item.quontity}個" %></td>
-          <td><%= number_to_currency(((order_item.price).to_i * (order_item.quontity).to_i), :locale => 'jp') %></td>
+          <td><%= number_to_currency(((order_item.price * 1.1).to_i * (order_item.quontity).to_i), :locale => 'jp') %></td>
         </tr>
       <% end %>
     </table>
