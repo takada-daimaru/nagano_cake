@@ -17,7 +17,19 @@
  @import "bootstrap";
 
 header {
-	height: 100px;
+	height: 70px;
+	position: fixed;
+	z-index: 10000;
+	background: white;
+	width: 100%;
+
+}
+.down {
+	padding-top: 70px;
+}
+.center {
+	display: flex;
+	item-align: center;
 }
 
 .field {
@@ -48,23 +60,24 @@ a {
 a:hover {
 	text-decoration: none;
 }
+.nav > li > a:hover {
+	background-color: white;
+}
+.nav > li > a:focus {
+	background-color: white;
+}
 footer {
-	background-color: navy;
+	background-color: royalblue;
 	height: 50px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-top: 200px;
+	width: 100%;
 }
 .copyright {
 	color: white;
 	font-family: serif;
-}
-nav .nav-link:hover {
-	background-color: blue;
-	color: black;
-}
-footer {
-	margin-top: 200px;
 }
 
 
