@@ -9,28 +9,35 @@
       </div>
       
       <div class="col-xs-4">
-        <%= f.label :name, "商品名" %>
-        <%= f.text_field :name %>
+      <table>
+        <tr>
+          <th><%= f.label :name, "商品名" %></th>
+          <td><%= f.text_field :name %></td>
+        </tr>
+        
+        <tr>
+          <th><%= f.label :explanation, "商品説明" %></th>
+          <td><%= f.text_area :explanation %></td>
+        </tr>
+        
+        <tr>
+          <th><%= f.label :type_id, "ジャンル" %></th>
+          <td><%= f.select :type_id, Type.all.collect {|t| [t.name, t.id]}, {}, {class: "form-control"} %></td>
+        </tr>
 
-        <br>
-        
-        <%= f.label :explanation, "商品説明" %>
-        <%= f.text_area :explanation %>
-        
-        <br>
 
         <%= f.label :type_id, "ジャンル" %>
         <%= f.select :type_id,[["asdf", 1], ["as", 2]], { include_blank: true, selected: 1 }, {class: "form-control"} %>
 
         <br>
 
-        <%= f.label :excluded, "税抜価格" %>
-        <%= f.text_field :excluded %>
+        <tr>
+          <th><%= f.label :status, "販売ステータス" %></th>
+          <td><%= f.text_field :status %></td>
+        </tr>
 
-        <br>
+      </table>
 
-        <%= f.label :status, "販売ステータス" %>
-        <%= f.text_field :status %>
       </div>
 
       <div class="col-xs-4">

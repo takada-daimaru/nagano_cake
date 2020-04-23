@@ -17,14 +17,14 @@
 			<% @cartitems.each do |cartitem| %>
 			<tr>
 				<td>
-	
+					<%= attachment_image_tag cartitem.item, :image, format:'jpg',size:'50x50' %>
 					<%= cartitem.item.name %>
 				</td>
 				<td>
 					<%= number_to_currency((cartitem.item.excluded).to_i * 1.1, :locale => 'jp') %>
 				</td>
 				<td>
-					<%= form_for(cartitem , url:customers_cart_item_path(cartitem)) do |f| %>
+					<%= form_for(cartitem, url:customers_cart_item_path(cartitem)) do |f| %>
 					<%= f.number_field :quontity,incrude_brank:cartitem.quontity,in: 0..30 %>
 					<%= f.submit "変更" %>
 					
