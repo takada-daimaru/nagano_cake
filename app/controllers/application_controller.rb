@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def after_sign_in_path_for(resource)
+
 		if resource.instance_of?(Admin)
 			admins_orders_top_path
 		elsif resource.instance_of?(Customer)
@@ -27,6 +28,4 @@ class ApplicationController < ActionController::Base
 		end
 	end
 end
-
-
 

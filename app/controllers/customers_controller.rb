@@ -28,6 +28,7 @@ class CustomersController < ApplicationController
     @customer = current_customer
   end
 
+
   def update_status
     @customer = current_customer
     if @customer.status == "有効"
