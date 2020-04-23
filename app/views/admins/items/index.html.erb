@@ -19,10 +19,11 @@
 					<%= item.name %>
 				<% end %>
 			</td>
-			<td><%= item.excluded %></td>
+			<td><%= (item.excluded).to_i.floor(0).to_s(:delimited,delimiter: ',') %></td>
 			<td><%= item.type.name %></td>
 			<td><%= item.status %></td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
+  

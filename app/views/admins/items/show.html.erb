@@ -26,12 +26,12 @@
 				<%= @item.type.name %>
 			</span>
 		</div>
-
+		 
 		<div class="row">
 			<h3 class="col-xs-4">税込価格(税抜き価格)</h3>
 			<span class="col-xs-8">
-				<%= number_to_currency((@item.excluded).to_i * 1.1, :locale => 'jp') %>
-				(<%= @item.excluded %>)
+			<%= number_to_currency((@item.excluded).to_i * 1.1, :locale => 'jp') %>
+				(<%= (@item.excluded).to_i.floor(0).to_s(:delimited, delimiter:',') %>)
 			</span>
 		</div>
 
