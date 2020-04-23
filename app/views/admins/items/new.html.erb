@@ -25,10 +25,11 @@
           <td><%= f.select :type_id, Type.all.collect {|t| [t.name, t.id]}, {}, {class: "form-control"} %></td>
         </tr>
 
-        <tr>
-          <th><%= f.label :excluded, "税抜価格" %></th>
-          <td><%= f.text_field :excluded %></td>
-        </tr>
+
+        <%= f.label :type_id, "ジャンル" %>
+        <%= f.select :type_id,[["asdf", 1], ["as", 2]], { include_blank: true, selected: 1 }, {class: "form-control"} %>
+
+        <br>
 
         <tr>
           <th><%= f.label :status, "販売ステータス" %></th>
@@ -38,7 +39,7 @@
       </table>
 
       </div>
-      
+
       <div class="col-xs-4">
       </div>
     </div>

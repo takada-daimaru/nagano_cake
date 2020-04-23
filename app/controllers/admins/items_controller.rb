@@ -12,25 +12,25 @@ class Admins::ItemsController < ApplicationController
   end
 
   def create
+    @item = Item.new(items_params)
+    @item.save
+    redirect_to edit_admins_item
   end
 
   def edit
-    @item = Item.new
-    @items = Item.all
+    @item = Item.find(params[:id])
   end
 
   def update
     @item = Item.find(params[:id])
-    @item = update (item_parems)
+    @item.update(items_params)
     redirect_to item_path
   end
 
-
   private
-
   def items_params
-    params.require(:item).permit(:name, :explanation, :excluded, :image, :status )
-  end
+    params.require(:item).permit(:name, :explanation, :excluded, :image, :status, :type_id)
+end
 
 end
 
