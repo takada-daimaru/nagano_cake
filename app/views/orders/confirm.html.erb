@@ -1,51 +1,55 @@
-<div class="row confirm">
+<div class="confirm">
+  
   <h2>注文情報</h2>
-  <div class="col-xs-7">
-    <div class="alt-table-responsive">
-      <table class="table table-bordered">
-        <tr>
-          <th class="col-xs-5">商品名</th>
-          <th class="col-xs-3">単価価格(税込)</th>
-          <th class="col-xs-2">数量</th>
-          <th class="col-xs-2">小計</th>
-        </tr>
-        <% @sum = 0 %>
-        <% @total = 0 %>
-        <% current_customer.cart_items.each do |cart_item| %>
+  <div class="row">
+    <div class="col-xs-7">
+      <div class="alt-table-responsive">
+        <table class="table table-bordered">
           <tr>
-            <td>
-              <%= attachment_image_tag cart_item.item, :image, format:'jpg',size:'50x50' %>
-              <%= cart_item.item.name %>
-            </td>
-            <td><%= cart_item.item.excluded %></td>
-            <td><%= cart_item.quontity %></td>
-            <td><%= "#{number_to_currency((cart_item.item.excluded).to_i * (cart_item.quontity).to_i, :locale => 'jp' )}" %></td>
+            <th class="col-xs-5">商品名</th>
+            <th class="col-xs-3">単価価格(税込)</th>
+            <th class="col-xs-2">数量</th>
+            <th class="col-xs-2">小計</th>
           </tr>
-          <% @item_quontity = cart_item.quontity%>
-          <% @sub_total = (cart_item.item.excluded * cart_item.quontity) * 1.1 %>
-          <% @sum+= @sub_total %>
-          <% @total += @item_quontity %>
-        <% end %>
+          <% @sum = 0 %>
+          <% @total = 0 %>
+          <% current_customer.cart_items.each do |cart_item| %>
+            <tr>
+              <td>
+                <%= attachment_image_tag cart_item.item, :image, format:'jpg',size:'50x50' %>
+                <%= cart_item.item.name %>
+              </td>
+              <td><%= (((cart_item.item.excluded).to_i)*1.1).floor(0).to_s(:delimited, delimiter: ',') %></td>
+              <td><%= cart_item.quontity %></td>
+              <td><%= "#{(((cart_item.item.excluded).to_i)*1.1)*(cart_item.quontity).to_i}".to_i.floor(0).to_s(:delimited, delimiter: ',').to_s %></td>
+            </tr>
+            <% @item_quontity = cart_item.quontity%>
+            <% @sub_total = (cart_item.item.excluded * cart_item.quontity) * 1.1 %>
+            <% @sum+= @sub_total %>
+            <% @total += @item_quontity %>
+          <% end %>
 
-      </table>
+        </table>
+      </div>
     </div>
-  </div>
 
-  <div class="col-xs-4 col-xs-offset-1">
-    <div class="alt-table-responsive">
-      <table class="table table-bordered">
-        <tr>
-          <th>送料</th><td><%= number_to_currency(@ordernew.shipping_cost, :locale => 'jp' ) %></td>
-        </tr>
-        <tr>
-          <th>商品合計</th><td><%= @total %></td>
-        </tr>
-        <tr>
-          <% @ordernew.invoice = @sum.to_i + @ordernew.shipping_cost %>
-          <th>請求金額</th><td><%= number_to_currency(@ordernew.invoice, :locale => 'jp' )%></td>
-        </tr>
-      </table>
-   </div>
+    <div class="col-xs-4 col-xs-offset-1">
+      <div class="alt-table-responsive">
+        <table class="table table-bordered">
+          <tr>
+
+            <th>送料</th><td><%= (@ordernew.shipping_cost).to_s %></td>
+          </tr>
+          <tr>
+            <th>商品合計</th><td><%= @total %></td>
+          </tr>
+          <tr>
+            <% @ordernew.invoice = @sum.to_i + @ordernew.shipping_cost %>
+            <th>請求金額</th><td><%= number_to_currency(@ordernew.invoice, :locale => 'jp' )%></td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </div>
 
 

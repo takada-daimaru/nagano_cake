@@ -33,12 +33,19 @@ Rails.application.routes.draw do
   delete '/customers/cart_items', to: 'cart_items#all_delete'
 
 
-  resources :customers do
+  resource :customers do
     # update :update_status  ここの記述不明です！
-    patch '/customers/update', to: 'customers#update_status'
     resources :cart_items, only: [:index, :create, :update, :destroy]
-     resources :items, only: [:new, :create]
+   
   end
+  get '/customers/status', to: 'customers#status'
+  post '/customers/status', to: 'customers#update_status'
+  get '/customer/edit', to:"customers#edit"
+  patch '/customer/edit', to:"customers#update"
+  put '/customer/edit', to:"customers#update"
+  get 'customer/passwords/edit', to:"customers#passwords"
+  patch '/customer/passwords/edit' ,to: "customers#passwordsupdate"
+  put   '/customer/passwords/edit' ,to: "customers#passwordsupdate"
 
 resources :types, only: [:index, :create, :show, :edit, :update]
 resources :items, only: [:index, :show ]
