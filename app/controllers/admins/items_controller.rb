@@ -29,7 +29,7 @@ class Admins::ItemsController < ApplicationController
 
   private
   def items_params
-    params.require(:item).permit(:name, :explanation, :excluded, :image, :status)
+    params.require(:item).permit(:name, :explanation, :excluded, :image, :status, :type_id)
 end
 
 end

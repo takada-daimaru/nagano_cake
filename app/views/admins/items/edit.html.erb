@@ -1,9 +1,8 @@
 <div class="row">
     <h3>商品 編集画面</h3>
 
-<%= attachment_image_tag @item, :image, format:'jpg',size:'100x100' %>
-
       <%= form_for @item do |f|%>
+  
 
         <div>
          <p> 商品名 </p>
@@ -18,22 +17,25 @@
         </div>
 
         <br>
-
-        <%# #商品画像 %>
+　　　　 <%# #商品画像 %>
         <div>
-         <%= f.attachment_field  :image  %>
+         <%= f.attachment_field  :image, format:'jpg',size:'250x250' %>
         </div>
 
         <br>
 
+       <div>
+         <p>ジャンル</p>
+       </div>
+
         <div>
-          <p>税抜価格</p>
-          <%= f.text_field :excluded %>
+         <p>税抜価格</p>
+         <%= f.text_field :excluded %>
         </div>
 
        <div>
-        <%= f.label :status, "販売ステータス" %>
-        <%= f.text_field :status %>
+        <p> 販売ステータス</p>
+        <%= f.select :status,[["販売中", 0], ["売切れ", 1]], { include_blank: true, selected: 1 }, {class: "form-control"} %>
        </div>
 
       <%= f.submit "変更を保存" %>
