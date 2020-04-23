@@ -168,111 +168,111 @@ Type.create!(
   status: true,
 )
 
-Item.create!(
-  type_id: 1,
-  name: '洋梨のチーズタルト',
-  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
-  excluded: '1200',
-  image: File.open('./app/assets/images/items/cheese-tart.jpg'),
-  status: 0,
-)
+   Item.create!(
+   type_id: 1,
+   name: '洋梨のチーズタルト',
+   explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+   excluded: '1200',
+   image: File.open('./app/assets/images/items/cheese-tart.jpg'),
+   status: 0,
+ )
 
-Item.create!(
-  type_id: 1,
-  name: 'ザッハトルテ',
-  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
-  excluded: '2900',
-  image: File.open('./app/assets/images/items/sachertorte.png'),
-  status: 0,
-)
+ Item.create!(
+   type_id: 1,
+   name: 'ザッハトルテ',
+   explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+   excluded: '2900',
+   image: File.open('./app/assets/images/items/sachertorte.png'),
+   status: 0,
+ )
 
-Item.create!(
-  type_id: 1,
-  name: 'いちごのショートケーキ',
-  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
-  excluded: '500',
-  image: File.open('./app/assets/images/items/shortcake.jpg'),
-  status: 0,
-)
+ Item.create!(
+   type_id: 1,
+   name: 'いちごのショートケーキ',
+   explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+   excluded: '500',
+   image: File.open('./app/assets/images/items/shortcake.jpg'),
+   status: 0,
+ )
 
-Item.create!(
-  type_id: 2,
-  name: '卵たっぷり濃厚プリン',
-  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
-  excluded: '500',
-  image: File.open('./app/assets/images/items/pudding.jpg'),
-  status: 0,
-)
+ Item.create!(
+   type_id: 2,
+   name: '卵たっぷり濃厚プリン',
+   explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+   excluded: '500',
+   image: File.open('./app/assets/images/items/pudding.jpg'),
+   status: 0,
+ )
 
-Item.create!(
-  type_id: 5,
-  name: '紅茶のクッキー',
-  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
-  excluded: '800',
-  image: File.open('./app/assets/images/items/coockie.jpg'),
-  status: 0,
-)
+ Item.create!(
+   type_id: 5,
+   name: '紅茶のクッキー',
+   explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+   excluded: '800',
+   image: File.open('./app/assets/images/items/coockie.jpg'),
+   status: 0,
+ )
 
-Item.create!(
-  type_id: 1,
-  name: 'フルーツタルト',
-  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
-  excluded: '2900',
-  image: File.open('./app/assets/images/items/fruit-tart.jpg'),
-  status: 1,
-)
+ Item.create!(
+   type_id: 1,
+   name: 'フルーツタルト',
+   explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+   excluded: '2900',
+   image: File.open('./app/assets/images/items/fruit-tart.jpg'),
+   status: 1,
+ )
 
-Item.create!(
-  type_id: 6,
-  name: '大きな桃のゼリー',
-  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
-  excluded: '480',
-  image: File.open('./app/assets/images/items/peach-jelly.png'),
-  status: 0,
-)
+ Item.create!(
+   type_id: 6,
+   name: '大きな桃のゼリー',
+   explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+   excluded: '480',
+   image: File.open('./app/assets/images/items/peach-jelly.png'),
+   status: 0,
+ )
 
-Item.create!(
-  type_id: 3,
-  name: 'マカロンセット（8個）',
-  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
-  excluded: '1200',
-  image: File.open('./app/assets/images/items/macaroon-8.jpg'),
-  status: 0,
-)
+ Item.create!(
+   type_id: 3,
+   name: 'マカロンセット（8個）',
+   explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+   excluded: '1200',
+   image: File.open('./app/assets/images/items/macaroon-8.jpg'),
+   status: 0,
+ )
 
-Item.create!(
-  type_id: 3,
-  name: 'マカロン（16個）',
-  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
-  excluded: '2000',
-  image: File.open('./app/assets/images/items/macaroon-16.png'),
-  status: 0,
-)
+ Item.create!(
+   type_id: 3,
+   name: 'マカロン（16個）',
+   explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+   excluded: '2000',
+   image: File.open('./app/assets/images/items/macaroon-16.png'),
+   status: 0,
+ )
 
-Item.create!(
-  type_id: 1,
-  name: 'バナナケーキ',
-  explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
-  excluded: '980',
-  image: File.open('./app/assets/images/items/banana-cake.jpg'),
-  status: 0,
-)
+ Item.create!(
+   type_id: 1,
+   name: 'バナナケーキ',
+   explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
+   excluded: '980',
+   image: File.open('./app/assets/images/items/banana-cake.jpg'),
+   status: 0,
+ )
 
-Order.create!(
-	customer_id: 1,
-	shipping_cost: 800,
-	payment: 0,
-	status: 0,
-	postcode: "1110035",
-	address: "東京都台東区西浅草",
-	destination: "高田大丸",
-	invoice: 2120,
-)
+ Order.create!(
+ 	customer_id: 1,
+ 	shipping_cost: 800,
+ 	payment: 0,
+ 	status: 0,
+ 	postcode: "1110035",
+ 	address: "東京都台東区西浅草",
+ 	destination: "高田大丸",
+ 	invoice: 2120,
+ )
 
-OrderItem.create!(
-	order_id: 1,
-	item_id: 1,
-	status: 0,
-	quontity: 1,
-	price: 1200,
-)
+ OrderItem.create!(
+ 	order_id: 1,
+ 	item_id: 1,
+ 	status: 0,
+ 	quontity: 1,
+ 	price: 1200,
+ )

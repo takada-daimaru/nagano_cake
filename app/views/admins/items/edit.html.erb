@@ -1,29 +1,43 @@
 <div class="row">
-<h3>商品 編集画面</h3>
+    <h3>商品 編集画面</h3>
 
-<% @items.each do |item| %>
+      <%= form_for @item do |f|%>
+  
 
-<%= form_for @item do |f| %>
-  <label>商品名</label>
-   <div>
-  <%= f.text_field :name %>
-  </div>
-   <div>
-  <label>商品説明</label>
-   </div>
-  <%= f.text_area :explanation %>
-   <%# #商品画像 %>
-  <div>
-  <%= f.attachment_field image %>
-  </div>
-  <label>税抜価格</label>
-  <div>
-  <%= f.text_area :excluded %>
-  </div>
-  <label>販売ステータス</label>
-  <div>
-  <%= f.text_area :status %>
-  </div>
-  <%= f.submit "変更を保存" %>
-<% end %>
+        <div>
+         <p> 商品名 </p>
+         <%= f.text_field :name %>
+        </div>
+
+        <br>
+
+        <div>
+         <p>商品説明</p>
+         <%= f.text_area :explanation %>
+        </div>
+
+        <br>
+　　　　 <%# #商品画像 %>
+        <div>
+         <%= f.attachment_field  :image, format:'jpg',size:'250x250' %>
+        </div>
+
+        <br>
+
+       <div>
+         <p>ジャンル</p>
+       </div>
+
+        <div>
+         <p>税抜価格</p>
+         <%= f.text_field :excluded %>
+        </div>
+
+       <div>
+        <p> 販売ステータス</p>
+        <%= f.select :status,[["販売中", 0], ["売切れ", 1]], { include_blank: true, selected: 1 }, {class: "form-control"} %>
+       </div>
+
+      <%= f.submit "変更を保存" %>
+     <% end %>
 
