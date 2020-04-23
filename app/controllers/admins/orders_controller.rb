@@ -1,7 +1,8 @@
 class Admins::OrdersController < ApplicationController
+  before_action :authenticate_admin!
   def top
   	now = Time.current
-  	@order_count = Order.where(created_at: Date.today).count
+  	@order_count = Order.where("Date(created_at) = '#{Date.today}'").count
   end
 
   def show
