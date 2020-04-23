@@ -23,6 +23,7 @@ Customer.create!(
   phone_number: '000-0000-0000',
   status: 0,
 )
+
 Customer.create!(
   first_name: '松尾',
   last_name: '毅雄',
@@ -35,6 +36,7 @@ Customer.create!(
   phone_number: '000-0000-0000',
   status: 0,
 )
+
 Customer.create!(
   first_name: '越智',
   last_name: '穂乃香',

@@ -19,7 +19,6 @@
                 <%= attachment_image_tag cart_item.item, :image, format:'jpg',size:'50x50' %>
                 <%= cart_item.item.name %>
               </td>
-
               <td><%= (((cart_item.item.excluded).to_i)*1.1).floor(0).to_s(:delimited, delimiter: ',') %></td>
               <td><%= cart_item.quontity %></td>
               <td><%= "#{(((cart_item.item.excluded).to_i)*1.1)*(cart_item.quontity).to_i}".to_i.floor(0).to_s(:delimited, delimiter: ',').to_s %></td>
@@ -38,6 +37,7 @@
       <div class="alt-table-responsive">
         <table class="table table-bordered">
           <tr>
+
             <th>送料</th><td><%= (@ordernew.shipping_cost).to_s %></td>
           </tr>
           <tr>
