@@ -25,21 +25,31 @@ class CustomersController < ApplicationController
   end
 
   def status
-    
+    @customer = current_customer
   end
 
   def update_status
-
+    @customer = current_customer
+    if @customer.status == "有効"
+      @customer.status = "退会済み";
+      @customer.save
+      reset_session
+      redirect_to root_path
+    end
   end
 
-private
-def customer_params
-    params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :email ,:postcode, :address, :phone_number )
-end
+  private
+  def customer_params
+      params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :email ,:postcode, :address, :phone_number )
+  end
 
-def password_params
-    params.require(:customer).permit(:password, :password_confirmation,:current_password )
-end
+  def password_params
+      params.require(:customer).permit(:password, :password_confirmation,:current_password )
+  end
+
+  def update_params
+    params.require(:customer).permit(:status)
+  end
 
   
 end

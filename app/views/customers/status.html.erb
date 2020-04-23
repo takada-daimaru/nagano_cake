@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row customer-status">
   <div class="text-center">
     <div>
       <p><strong>本当に退会しますか？</strong></p>
@@ -7,11 +7,10 @@
         これまでの小丹生履歴が閲覧できなくなります。<br>
         退会する場合は、「退会する」をクリックしてください。
       </p>
-    </div class="text-center">
-      <table>
-        <tr>
-          <td><%= link_to "退会しない",  , class: "btn btn-primary"%></td>
-          <td><%= link_to "退会する",  , class: "btn btn-danger"%></td>
-        </tr>
+    </div>
+    <div class="customer-status-btn">
+      <%= link_to "退会しない", customers_path , class: "btn btn-primary" %>
+      <%= link_to "退会する", customers_status_path , class: "btn btn-danger", method: :post %>
+    </div>
   </div>
 </div>
