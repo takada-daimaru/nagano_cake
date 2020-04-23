@@ -16,17 +16,12 @@ class CustomersController < ApplicationController
     @customer = current_customer
     @customer.update(customer_params)
     redirect_to customers_path
-
   end
 
   def passwordsupdate
     @customer = current_customer
     @customer.update(password_params)
     redirect_to root_path
-  end
-
-  def status
-    
   end
 
   def update_

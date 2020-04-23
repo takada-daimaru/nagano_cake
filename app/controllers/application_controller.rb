@@ -7,12 +7,26 @@ class ApplicationController < ActionController::Base
 	end
 
 	def after_sign_in_path_for(resource)
-        root_path
-    end
+		if resource.instance_of?(Admin)
+			admins_orders_top_path
+		elsif resource.instance_of?(Customer)
+			items_top_path
+		else
+			items_top_path
+		end
+	end
 
-    def after_sign_out_path_for(resource)
-    	root_path
-    end
+	# ログアウト後に遷移するpathを設定
+	def after_sign_out_path_for(resource)
+		if resource == :admin
+			admin_session_path
+		elsif resource == :customer
+			items_top_path
+		else
+			items_top_path
+		end
+	end
 end
+
 
 
