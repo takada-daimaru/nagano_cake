@@ -1,7 +1,7 @@
 
 <h2 class="color">商品 編集画面</h2>
 
-   <%= form_for @item do |f|%>
+   <%= form_for @item, url: admins_item_path do |f|%>
       <div class="row">
 
        <%# #商品画像 %>
@@ -33,7 +33,7 @@
          <h3 class="col-xs-2">ジャンル</h3>
            <br>
           <span class="col-xs-10">
-             <%= f.select :status,[["ケーキ", 0], ["クッキー", 1], ["チョコレート", 2],["プリン.ゼリー", 3],["和菓子", 4],["アイス", 5]], { include_blank: true, selected: 1 }, {class: "form-control"} %>
+             <%= f.select :type_id, Type.all.collect {|t| [t.name, t.id]}, {}, {class: "form-control"} %>
            </span>
         </div>
 
@@ -49,7 +49,7 @@
           <h3 class="col-xs-4">販売ステータス</h3>
             <br>
            <span class="col-xs-8">
-            <%= f.select :status,[["販売中", 0], ["売切れ", 1]], { include_blank: true, selected: 1 }, {class: "form-control"} %>
+            <%= f.select :type_id,[["販売中", 1], ["売切れ", 2]], { include_blank: true, selected: 1 }, {class: "form-control"} %>
           </span>
 
        </div>
