@@ -1,6 +1,9 @@
-<div class="types serch">
-	<h3>ジャンル検索</h3>
+<div class="types serch type-case">
+	<h4 class="color fas fa-search">ジャンル検索</h4>
+
 	<% types.each do |type| %>
-	  <p><%= link_to type.name, items_path(types_id: type.id), class: "types-name" %></p>
+	 <% if type == "有効" %>
+	  <ul class="types-ul"><li class="types-li"><%= link_to type.name, items_path(types_id: type.id), class: "types-a" %></li></ul>
+	 <% end %>
 	<% end %>
 </div>

@@ -1,0 +1,12 @@
+<div class="container-search mt-5">
+  <% if @model == "customer" %>
+    <h2><%= "'#{@content}'検索結果" %></h2>
+    <%= render 'searcher', datas: @datas, model: @model %>
+  <% elsif @model == "item" %>
+    <h2><%= "'#{@content}'検索結果" %></h2>
+    <%= render 'searcher', datas: @datas, model: @model %>
+  <% elsif @model == "type" %>
+    <h2><%= "'#{@content}'検索結果" %></h2>
+    <%= render 'searcher', datas: @datas, model: @model %>
+  <% end %>
+</div>

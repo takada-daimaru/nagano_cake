@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  namespace :admins do
+    get 'search/search'
+  end
     # 管理者サイト
   namespace :admins do
     get '/orders/top', to: 'orders#top'
     get '/orders', to: 'orders#history'
+    get '/search', to: 'search#search'
     patch '/customers/:id/edit', to: 'customers#update'
     patch '/orders', to: 'orders#update'
     patch '/items/:id/edit', to: 'items#update'

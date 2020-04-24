@@ -9,14 +9,14 @@
 	</div>
 	<div class="col-xs-5">
 		<div class="item-information">
-			<h2><%= @item.name %></h2>
+			<h2 class="color"><%= @item.name %></h2>
 			<p><%= @item.explanation %></p>
 			<h3><%= number_to_currency((@item.excluded).to_i * 1.1, :locale => 'jp') %>(税込)</h3>
 			<%= form_for(@cartitemnew ,url:customers_cart_items_path) do |f| %>
 			<%= hidden_field_tag(:item_id, @item.id) %>
 
 			<%= f.number_field :quontity, placeholder:'個数を選択してください',in: 1..30 %>
-			<%= f.submit 'カートに入れる' %>
+			<%= f.submit 'カートに入れる', class: "btn btn-primary" %>
 			<% end %>
 		</div>
 	</div>
