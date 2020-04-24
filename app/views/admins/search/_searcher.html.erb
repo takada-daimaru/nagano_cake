@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% datas.each do |data| %>
+      <% if model == "customer" %>
+        <tr>
+          <td><%= data.first_name %></td>
+        </tr>
+      <% elsif model == "item" %>
+        <tr>
+          <td><%= data.name %></td>
+        </tr>
+      <% elsif model == "type" %>
+        <tr>
+          <td><%= data.name %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
