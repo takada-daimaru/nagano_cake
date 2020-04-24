@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  namespace :admins do
+    get 'search/search'
+  end
     # 管理者サイト
   namespace :admins do
     get '/orders/top', to: 'orders#top'
     get '/orders', to: 'orders#history'
+    get '/search', to: 'search#search'
     resources :order_items, only: [:update]
     resources :orders, only: [:show, :update]
     resources :customers, only: [:index, :show, :edit, :update]
