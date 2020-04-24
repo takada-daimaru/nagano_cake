@@ -1,6 +1,8 @@
 <div class="types serch">
 	<h3>ジャンル検索</h3>
 	<% types.each do |type| %>
+	<%if type.status == "有効" %>
 	  <p><%= link_to type.name, items_path(types_id: type.id), class: "types-name" %></p>
+	 <% end %>
 	<% end %>
 </div>
