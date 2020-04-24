@@ -6,7 +6,7 @@
 	<div class="col-xs-9">
 		<div class="item-index">
 		    <% if params[:types_id] == nil %>
-			<h2>商品一覧<span>(全<%= Item.all.count %>件)</span></h2>
+			<h2 class="color fas fa-birthday-cake">商品一覧<span>(全<%= Item.all.count %>件)</span></h2>
 			<% else %>
 			<h2><%= @type.name %>
 			<% end %>
