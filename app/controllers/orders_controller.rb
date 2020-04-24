@@ -41,7 +41,6 @@ class OrdersController < ApplicationController
         @order_items = OrderItem.new(
           order_id: @ordernew.id,
           item_id: cart_item.item_id,
-          status: 1,
           quontity: cart_item.quontity,
           price: cart_item.item.excluded,
           )

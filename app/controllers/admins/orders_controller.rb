@@ -11,18 +11,16 @@ class Admins::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
+    @orderitems = @order.order_items
     @order.update(order_params)
 
-   if @order.status == "入金確認"
+    if @order.status == "入金確認"
 
-     @order.order_items.each do |order|
-     order.update(status: "製作待ち") 
-     end
-     redirect_to admins_orders_path
-
-    else
-    redirect_to admins_orders_path
-    end
+     @orderitems.update(status: "製作待ち") 
+     redirect_back(fallback_location:root_path)
+   else
+     redirect_back(fallback_location:root_path)
+  end
   end
 
   def history
@@ -32,6 +30,10 @@ class Admins::OrdersController < ApplicationController
   private
   def order_params
     params.require(:order).permit(:status)
+  end
+
+  def item_params
+    params.require(:order_item).permit(:status)
   end
 
 
