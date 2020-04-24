@@ -4,14 +4,15 @@ class Admins::OrderItemsController < ApplicationController
 		@orderitem = OrderItem.find(params[:id])
 		@order = @orderitem.order
 		@orderitem.update(status_params)
-		if @oderitem.status == "製作中"
+		if @orderitem.status == "製作中"
 		   @order.update(status: "製作中") 
-		   redirect_to admins_orders_path
+		  redirect_back(fallback_location:root_path)
 
-	elseif
+	   elsif 
+	   	
 
 
-		redirect_to admins_orders_path
+		 redirect_back(fallback_location:root_path)
 	end
 end
 
