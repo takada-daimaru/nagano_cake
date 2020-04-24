@@ -26,3 +26,6 @@
 	display: flex;
 	align-items: flex-end;
 }
+.link-color{
+	color: gray;
+}
