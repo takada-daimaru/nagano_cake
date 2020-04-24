@@ -2,50 +2,51 @@
 <h3>配送先登録/一覧</h3>
 <%= form_for @shipping do |f| %>
 
-<table>
-	<tr>
-        <td><p>郵便番号（ハイフンなし）</p></td>
-        <td><%= f.text_field :postcode %></td>
-    </tr>
+       <table>
+            <tr>
+              <td><p>郵便番号（ハイフンなし）</p></td>
+              <td><%= f.text_field :postcode %></td>
+            </tr>
 
-    <tr>
-    	<td><p>住所</p></td>
-        <td><%= f.text_field :address %></td>
-    </tr>
+            <tr>
+              <td><p>住所</p></td>
+              <td><%= f.text_field :address %></td>
+            </tr>
 
-    <tr>
-     <td><p>宛名</p></td>
-     <td><%= f.text_field :name %></td>
-     <td><%= f.submit '登録する' %></td>
-    </tr>
+            <tr>
+              <td><p>宛名</p></td>
+              <td><%= f.text_field :name %></td>
+              <td><%= f.submit '登録する' %></td>
+            </tr>
 
- </table>
-<% end %>
-<br>
-<br>
+        </table>
+    <% end %>
 
-<div class="shipping1">
- <table border="1" width="700">
- 	<thead>
-     <th width="20%">郵便番号</th>
-     <th width="40%"><p>住所</p></th>
-     <th width="15%"><p>宛名</p></th>
-     <th width="40%"><p></p></th>
-</thead>
-<tbody>
-<% @shippings.each do |shipping| %>
-	<tr>
-      <td width="20%"><%= shipping.postcode %></td>
-      <td width="40%"><p><%= shipping.address %></td>
-      <td width="15%"><%= shipping.name %></td>
-      <td width="40%"><%= link_to "編集する", edit_shipping_path(shipping.id) %>
-      <%= link_to "削除する", shipping_path(shipping.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %></td>
-    </tr>
-<% end %>
-</tbody>
-</table>
-</div>
-</div>
+        <br>
+        <br>
+
+        <table border="1" width="700">
+            <thead>
+            <th width="20%">郵便番号</th>
+            <th width="40%"><p>住所</p></th>
+            <th width="15%"><p>宛名</p></th>
+            <th width="40%"><p></p></th>
+            </thead>
+
+        <tbody>
+            <% @shippings.each do |shipping| %>
+            <tr>
+            <td width="20%"><%= shipping.postcode %></td>
+            <td width="40%"><p><%= shipping.address %></td>
+            <td width="15%"><%= shipping.name %></td>
+            <td width="40%"><%= link_to "編集する", edit_shipping_path(shipping.id) %>
+            <%= link_to "削除する", shipping_path(shipping.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %></td>
+            </tr>
+      <% end %>
+    </tbody>
+   </table>
+  </div>
+ </div>
 
 
 
