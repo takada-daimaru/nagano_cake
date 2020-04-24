@@ -16,7 +16,7 @@
 			<%= hidden_field_tag(:item_id, @item.id) %>
 
 			<%= f.number_field :quontity, placeholder:'個数を選択してください',in: 1..30 %>
-			<%= f.submit 'カートに入れる' %>
+			<%= f.submit 'カートに入れる', class: "btn btn-primary" %>
 			<% end %>
 		</div>
 	</div>
