@@ -1,4 +1,4 @@
-<h2 class="color">注文詳細画面</h2>
+<h2>注文詳細画面</h2>
 
 
 		<div class="row flex">
@@ -63,6 +63,7 @@
 					<%= form_for(order_item , url:admins_order_item_path(order_item)) do |f| %>
 								<td><%= f.select :status, OrderItem.statuses.keys.to_a,{} %>%>
 								</td>
+								<%= f.hidden_field :order_id, :value => @order.id %>
 								<td><%= f.submit "更新", class: "btn btn-primary" %></td>
 							</tr>
 							<% end %>
