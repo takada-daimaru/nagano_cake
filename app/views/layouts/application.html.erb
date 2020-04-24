@@ -4,14 +4,13 @@
     <title>NaganoCake</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/b5c34d0b23.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style="background-color: ; font-size: 15px;">
+  <body style="font-size: 15px;">
     <header>
-
 
       <% if request.fullpath.include? "admin"%>   <%# urlにadminという文字があった場合下記を実行 %>
         <%= render "layouts/admins/header" %>
@@ -20,6 +19,7 @@
       <% end %>
 
     </header>
+
     <div class="search-form">
       <% if request.fullpath.include? "admin" %>
         <%= form_tag(admins_search_path, method: :get) do %>   <%# getでsearch.htmlに飛んでる%>
@@ -30,11 +30,12 @@
         <% end %>
       <% end %>
     </div>
-    <div class="container">
+  
+    <div class="container down">
       <%= yield %>
     </div>
   </body>
   <footer>
-    <p class="copyright">©︎TakadaDaimaru Corporation</p>
+    <p class="copyright">©︎TakadaDaimaru Corporation <i class="fas fa-birthday-cake"></i></p>
   </footer>
 </html>

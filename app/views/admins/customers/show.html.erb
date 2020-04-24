@@ -1,42 +1,42 @@
-<h2>会員詳細画面</h2>
-<div class="row">
-	<h3 class="col-xs-2">顧客ID</h3>
+<h2 class="color">会員詳細画面</h2>
+<div class="row flex">
+	<span class="col-xs-2 name">顧客ID</span>
 	<span class="col-xs-10">
 		<%= @customer.id %>　<span class="statusmark"><%= @customer.status %></span>
 	</span>
 </div>
-<div class="row">
-	<h3 class="col-xs-2">氏名</h3>
+<div class="row flex">
+	<span class="col-xs-2 name">氏名</span>
 	<span class="col-xs-10">
 		<%= @customer.first_name %>　<%= @customer.last_name %>
 	</span>
 </div>
-<div class="row">
-	<h3 class="col-xs-2">フリガナ</h3>
+<div class="row flex">
+	<span class="col-xs-2 name">フリガナ</span>
 	<span class="col-xs-10">
 		<%= @customer.first_name_kana %>　<%= @customer.last_name_kana %>
 	</span>
 </div>
-<div class="row">
-	<h3 class="col-xs-2">郵便番号</h3>
+<div class="row flex">
+	<span class="col-xs-2 name">郵便番号</span>
 	<span class="col-xs-10">
-		<%= @customer.postcode %>
+		〒<%= @customer.postcode.insert(3, "-") %>
 	</span>
 </div>
-<div class="row">
-	<h3 class="col-xs-2">住所</h3>
+<div class="row flex">
+	<span class="col-xs-2 name">住所</span>
 	<span class="col-xs-10">
 		<%= @customer.address %>
 	</span>
 </div>
-<div class="row">
-	<h3 class="col-xs-2">電話番号</h3>
+<div class="row flex">
+	<span class="col-xs-2 name">電話番号</span>
 	<span class="col-xs-10">
 		<%= @customer.phone_number %>
 	</span>
 </div>
-<div class="row">
-	<h3 class="col-xs-2">メールアドレス</h3>
+<div class="row flex">
+	<span class="col-xs-2 name">メールアドレス</span>
 	<span class="col-xs-10">
 		<%= @customer.email %>
 	</span>

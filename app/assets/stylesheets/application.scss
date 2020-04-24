@@ -17,55 +17,139 @@
  @import "bootstrap";
 
 header {
-	height: 100px;
+	height: 70px;
+	position: fixed;
+	z-index: 10000;
+	background: white;
+	width: 100%;
 }
+.down {
+	padding-top: 70px;
+	padding-bottom: 100px;
+}
+body {
+	color: white;
+	font-family: sans-serif;
+	background-color: skyblue;
+}
+.center {
+	display: flex;
+	item-align: center;
+}
+.color {
+	color: skyblue;
+	background-color: white;
+	border-radius: 50px;
+	padding: 5px;
 
+}
 .field {
 	margin-top: 10px;
 }
 .actions {
 	margin-top: 10px;
 }
-
-.types-name {
-	color: navy;
-	margin: 5px;
-	padding: 5px;
-	border-radius: 10px;
-	-webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all  0.5s ease;
+.types-ul {
+  font-family: sans-serif;
+  text-align: left;
+  padding-left: 0;
 }
-
-.types-name:hover {
-	color: white;
-	background-color: blue;
+.types-li {
+  list-style: outside none none;
+  padding: 5px 10px 5px 10px;
+}
+.types-a {
+  padding: 7px 15px;
+  font-size: 20px;
+  font-weight: bolder;
+  color: smokewhite;
+  position: relative;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-bottom: 2px solid white;
+}
+.types-a:before,
+.types-a:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.types-a:before {
+  bottom: 0;
+  display: block;
+  height: 3px;
+  width: 0%;
+  content: "";
+  background-color: #2980b9;
+}
+.types-a:after {
+  left: 0;
+  top: 0;
+  padding: 0.5em 0;
+  position: absolute;
+  content: attr(data-hover);
+  color: #ffffff;
+  white-space: nowrap;
+  max-width: 0%;
+  overflow: hidden;
+}
+.types-a:hover:before,
+.types-ul .current a:before {
+  opacity: 1;
+  width: 100%;
+}
+.types-a:hover:after,
+.types-ul .current a:after {
+  max-width: 100%;
 }
 a {
-	color: navy;
+	color: white;
 }
 a:hover {
 	text-decoration: none;
 }
+.nav > li {
+	a {
+		color: #a3d7ef;
+		font-family: sans-serif, "Font Awesome 5 Free";
+		border: 2px solid #a3d7ef;
+		border-radius: 50px;
+		background-image: linear-gradient(-140deg, #a3d7ef, #a3d7ef 50%, #fff 50%, #fff);
+	    background-size: 100% 500%;
+        background-position: bottom;
+    	transition: all 0.6s ease;
+		padding: 5px 10px;
+		margin-top: 7px;
+		margin-left: 10px;
+	}
+	a:hover {
+		background-position: top;
+    	color: white;
+    }
+}
+.nav > li > a:focus {
+	background-color: white;
+}
+.navbar-text {
+	fontfamily: sans-serif;
+	color: navy;
+}
 footer {
-	background-color: navy;
+	background-color: royalblue;
 	height: 50px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	width: 100%;
 }
 .copyright {
 	color: white;
 	font-family: serif;
 }
-nav .nav-link:hover {
-	background-color: blue;
+input {
 	color: black;
 }
-footer {
-	margin-top: 200px;
-}
+
 
 
 .search-form {
