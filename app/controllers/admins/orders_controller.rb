@@ -22,15 +22,20 @@ class Admins::OrdersController < ApplicationController
   end
   end
 
-def history
-    @orders = Order.all
+
+  def history
+   @orders = Order.all
+
     case params[:history_case]
     when "top"
       @orders = Order.where("Date(created_at) = '#{Date.today}'")
     when "customer"
-      @orders = Order.where("customer_id = '#{customer.id}'")
+
+      @orders = Order.where(customer_id: params[:customer_id])
     when "all"
       @orders = Order.all
+  end
+
   end
 end
 
