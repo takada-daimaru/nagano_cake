@@ -35,7 +35,6 @@ class Admins::OrdersController < ApplicationController
     when "all"
       @orders = Order.all
 
-  end
 end
 
   private
