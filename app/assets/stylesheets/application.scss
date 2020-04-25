@@ -151,7 +151,7 @@ footer {
 	font-family: serif;
 }
 input {
-	color: navy;
+	color: black;
 	border-radius: 50px;
 	margin-top: 5px;
 	padding-left: 10px;
@@ -163,7 +163,7 @@ select {
 
 
 textarea {
-	color: navy;
+	color: black;
 }
 
 .search {
@@ -265,7 +265,7 @@ select::-ms-expand {
     top: 0;
 }
 
-.select-wrap.select-circle > select:-moz-focusring { 
+.select-wrap.select-circle > select:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #fff;
 }
@@ -282,6 +282,8 @@ select::-ms-expand {
    top: 0;
    right: 0;
 }
+
+
 .select-wrap.select-circle-arrow:hover > select,.select-wrap.select-circle-arrow > select:hover{
   color: #fff;
 }
