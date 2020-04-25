@@ -60,7 +60,7 @@
 								<% total = (order_item.price * order_item.quontity)*1.1 + total %>
 
 					<%= form_for(order_item , url:admins_order_item_path(order_item)) do |f| %>
-								<td><%= f.select :status, OrderItem.statuses.keys.to_a,{} %>
+								<td><%= f.select :status, OrderItem.statuses.keys.to_a,{} %>%>
 								</td>
 								<%= f.hidden_field :order_id, :value => @order.id %>
 								<td><%= f.submit "更新", class: "btn btn-primary" %></td>

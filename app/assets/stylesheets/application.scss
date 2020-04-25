@@ -162,6 +162,9 @@ select {
 }
 
 
+textarea {
+	color: navy;
+}
 
 .search {
 	margin-top: 10px;
@@ -262,7 +265,7 @@ select::-ms-expand {
     top: 0;
 }
 
-.select-wrap.select-circle > select:-moz-focusring { 
+.select-wrap.select-circle > select:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #fff;
 }
@@ -279,12 +282,12 @@ select::-ms-expand {
    top: 0;
    right: 0;
 }
-<<<<<<< HEAD
+
 
 textarea {
 	color: navy;
 }
-=======
+
 .select-wrap.select-circle-arrow:hover > select,.select-wrap.select-circle-arrow > select:hover{
   color: #fff;
 }
@@ -299,4 +302,4 @@ textarea {
 // 	display: flex;
 // 	justify-content: center;
 // }
->>>>>>> 96726cf0e67f584517212f66c6b5cf5a09144ac9
+

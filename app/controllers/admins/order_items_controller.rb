@@ -9,6 +9,7 @@ class Admins::OrderItemsController < ApplicationController
 		   @order.update(status: "製作中") 
 		  redirect_back(fallback_location:root_path)
 
+
 	   elsif @orderitem.status == "製作完了" 
 	   		 @orderitemall.each do |orderitem|
 	   		 @a = orderitem.status
@@ -21,6 +22,7 @@ class Admins::OrderItemsController < ApplicationController
 	   	 end
 	   	else
 			 redirect_back(fallback_location:root_path)
+
 	end
 end
 
