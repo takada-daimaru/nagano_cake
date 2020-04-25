@@ -52,7 +52,6 @@
 						<% total = 0 %>
 						<% @order.order_items.each do |order_item| %>
 							<tr>
-
 								<td><%= order_item.item.name %></td>
 								<td><%= (order_item.price * 1.1).to_i.floor(0).to_s(:delimited, delimiter:',') %></td>
 								<td><%= order_item.quontity %></td>

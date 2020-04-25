@@ -1,7 +1,6 @@
 class Admins::OrdersController < ApplicationController
   before_action :authenticate_admin!
   def top
-  	now = Time.current
   	@order_count = Order.where("Date(created_at) = '#{Date.today}'").count
   end
 
@@ -24,7 +23,11 @@ class Admins::OrdersController < ApplicationController
   end
 
   def history
-  	@orders = Order.all
+    if params[:count] == nil
+    @orders = Order.all
+  else
+  	@orders = Order.where("Date(created_at) = '#{Date.today}'")
+  end
   end
 
   private
