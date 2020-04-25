@@ -19,7 +19,7 @@
 	<h2 class="color">オススメ商品</h2>
 	<table class="table">
 		<tr>
-			<%  @items.shuffle.first(4).each do |item| %>
+			<%  @rank_items.each do |item| %>
 				<td class="col-xs-3 recommend-item">
 					<%= link_to item_path(item) do %>
 						<%= attachment_image_tag item, :image, format:'jpg',size:'180x180', class: "item-link-image" %>
