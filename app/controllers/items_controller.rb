@@ -9,8 +9,7 @@ class ItemsController < ApplicationController
          @type = Type.find(params[:types_id])
          @item = @type.items
          @count = @item.where(status: "販売中").count
-         @item = Item.where(status: "販売中")
-         @items = @item.page(params[:page]).reverse_order
+         @items = @item.where(status: "販売中").page(params[:page]).reverse_order
       end
   end
 
