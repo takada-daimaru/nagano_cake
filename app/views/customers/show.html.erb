@@ -3,7 +3,7 @@
   <table>
     <tr>
       <td>登録情報</td>
-      <td><%= link_to "編集する", customer_edit_path, class: "btn btn-primary" %></td>
+      <td><%= link_to "編集する", customer_edit_path(current_customer), class: "btn btn-primary" %></td>
       <%= link_to "パスワードを変更する", customer_passwords_edit_path,class: "btn btn-primary" %>
      
     </tr>
