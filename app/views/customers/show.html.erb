@@ -1,9 +1,9 @@
 <div class="row show">
-  <h3>マイページ</h3>
+  <h3 class="color fas fa-user">マイページ</h3>
   <table>
     <tr>
       <td>登録情報</td>
-      <td><%= link_to "編集する", customer_edit_path, class: "btn btn-primary" %></td>
+      <td><%= link_to "編集する", customer_edit_path(current_customer), class: "btn btn-primary" %></td>
       <%= link_to "パスワードを変更する", customer_passwords_edit_path,class: "btn btn-primary" %>
      
     </tr>
@@ -52,4 +52,5 @@
         <td><%= link_to "一覧を見る", orders_path , class: "btn btn-primary" %></td>
       </tr>
     </table>
+  </div>
 </div>

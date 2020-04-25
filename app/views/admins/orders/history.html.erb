@@ -1,4 +1,4 @@
-<h1>注文一覧画面</h1>
+<h1 class="color">注文一覧画面</h1>
 
 <table class="table">
 	<thead>
@@ -13,11 +13,13 @@
 		<% @orders.each do |order| %>
 		<tr>
 
-			<td><%= link_to admins_order_path(order) do %>
+			<td><%= link_to admins_order_path(order), class: 'link-color' do %>
 					<%= order.created_at.strftime("%Y/%m/%d/ %H:%M:%S") %>
 				<% end %>
 			</td>
-			<td><span><%= order.customer.first_name %><%= order.customer.last_name %></span></td>
+			<td><span><%= link_to admins_customer_path(order.customer), class: 'link_color' do %>
+			<%= order.customer.first_name %><%= order.customer.last_name %>
+			<% end %> </span></td>
 			<td><%= order.order_items.sum(:quontity) %></td>
 			<td><%= order.status %></td>
 		</tr>
