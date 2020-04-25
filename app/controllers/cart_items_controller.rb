@@ -7,7 +7,7 @@ class CartItemsController < ApplicationController
 
 
   def create
-    
+
     @cart_item = CartItem.new(cart_item_params)
     a = params[:item_id]
     if @item = CartItem.find_by(item_id:params[:item_id])

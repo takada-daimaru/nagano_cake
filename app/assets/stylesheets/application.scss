@@ -24,7 +24,7 @@ header {
 	width: 100%;
 }
 .down {
-	padding-top: 70px;
+	padding-top: 100px;
 	padding-bottom: 100px;
 }
 body {
@@ -158,9 +158,13 @@ footer {
 input {
 	color: black;
 }
+select {
+	color: black;
+}
 
 
 
+<<<<<<< HEAD
 .search {
 	margin-top: 10px;
 	color: black;
@@ -291,3 +295,8 @@ select::-ms-expand {
 // 	display: flex;
 // 	justify-content: center;
 // }
+=======
+.search-form {
+	float: right;
+}
+>>>>>>> master

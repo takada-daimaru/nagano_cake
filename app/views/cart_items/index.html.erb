@@ -26,7 +26,7 @@
 				<td>
 					<%= form_for(cartitem, url:customers_cart_item_path(cartitem)) do |f| %>
 					<%= f.number_field :quontity,incrude_brank:cartitem.quontity,in: 0..30 %>
-					<%= f.submit "変更" %>
+					<%= f.submit "変更", class: "btn btn-primary" %>
 					
 					<% end %>
 				</td>
@@ -46,7 +46,7 @@
 	<table class="table table-hover table-inverse" >
 		<tbody>
 			<tr>
-				<td><%=link_to "買い物を続ける", root_path %></td>
+				<td><%=link_to "買い物を続ける", items_path %></td>
 				<td></td>
 				<td></td>
 				<td style="text-align: right">合計金額</td>
