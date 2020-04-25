@@ -1,4 +1,4 @@
-<h2>商品詳細画面</h2>
+<h2 class="color">商品詳細画面</h2>
 
 <div class="row">
 	<div class="col-xs-4">
@@ -6,37 +6,38 @@
 	</div>
 
 	<div class="col-xs-8">
-		<div class="row">
-			<h3 class="col-xs-2">商品名</h3>
+		<div class="row flex">
+			<span class="col-xs-2 name">商品名</span>
 			<span class="col-xs-10">
 				<%= @item.name %>
 			</span>
 		</div>
 
-		<div class="row">
-			<h3 class="col-xs-2">商品説明</h3>
+		<div class="row flex">
+			<span class="col-xs-2 name">商品説明</span>
 			<span class="col-xs-10">
 				<%= @item.explanation %>
 			</span>
 		</div>
 
-		<div class="row">
-			<h3 class="col-xs-2">ジャンル</h3>
+		<div class="row flex">
+			<span class="col-xs-2 name">ジャンル</span>
 			<span class="col-xs-10">
 				<%= @item.type.name %>
 			</span>
 		</div>
 
-		<div class="row">
-			<h3 class="col-xs-4">税込価格(税抜き価格)</h3>
+
+		<div class="row flex">
+			<span class="col-xs-4 name">税込価格(税抜き価格)</span>
 			<span class="col-xs-8">
-				<%= number_to_currency((@item.excluded).to_i * 1.1, :locale => 'jp') %>
-				(<%= @item.excluded %>)
+			<%= number_to_currency((@item.excluded).to_i * 1.1, :locale => 'jp') %>
+				(<%= (@item.excluded).to_i.floor(0).to_s(:delimited, delimiter:',') %>)
 			</span>
 		</div>
 
-		<div class="row">
-			<h3 class="col-xs-4">販売ステータス</h3>
+		<div class="row flex">
+			<span class="col-xs-4 name">販売ステータス</span>
 			<span class="col-xs-8">
 				<%= @item.status %>
 			</span>

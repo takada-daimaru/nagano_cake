@@ -18,7 +18,7 @@ class CartItemsController < ApplicationController
     else
     @cart_item.customer_id = current_customer.id
     @cart_item.item_id = a
-    @cart_item.save!
+    @cart_item.save
     redirect_to customers_cart_items_path
   end
   end
@@ -39,7 +39,7 @@ end
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
     redirect_to customers_cart_items_path
-    
+
   end
 
   def all_delete
@@ -48,7 +48,7 @@ end
     redirect_to items_path
 
   end
-  
+
   private
 
   def cart_item_params
