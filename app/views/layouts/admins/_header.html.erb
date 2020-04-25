@@ -7,7 +7,7 @@
           <% if admin_signed_in? %>
             <li class="nav-link"><%= link_to ' 商品一覧',admins_items_path, class: "fas fa-birthday-cake" %></li>
             <li class="nav-link"><%= link_to ' 会員一覧',admins_customers_path, class: "fas fa-user" %></li>
-            <li class="nav-link"><%= link_to ' 注文履歴一覧',admins_orders_path, class: "fas fa-shopping-cart"  %></li>
+            <li class="nav-link"><%= link_to ' 注文履歴一覧',admins_orders_path(history_case: "all"), class: "fas fa-shopping-cart"  %></li>
             <li class="nav-link"><%= link_to ' ジャンル管理', admins_types_path, class: "fas fa-tags" %></li>
           <% else %>
           <% end %>
