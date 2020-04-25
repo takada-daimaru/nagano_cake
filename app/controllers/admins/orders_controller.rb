@@ -34,7 +34,6 @@ class Admins::OrdersController < ApplicationController
       @orders = Order.where(customer_id: params[:customer_id])
     when "all"
       @orders = Order.all
-  end
 
   end
 end

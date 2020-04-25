@@ -29,6 +29,8 @@ class ItemsController < ApplicationController
   def top
       @types = Type.all
       @items = Item.all
+
+      @rank_items = Item.find(OrderItem.group(:item_id).order('count(item_id) desc').limit(4).pluck(:item_id))
   end
 
   def about

@@ -50,7 +50,7 @@
           <h3 class="col-xs-4">販売ステータス</h3>
             <br>
            <span class="col-xs-8">
-            <%= f.select :status, Item.statuses.keys.to_a,{} %>
+            <%= f.select :status, Item.statuses.keys.to_a,{}, {class: "form-control"} %>
           </span>
 
        </div>
