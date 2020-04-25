@@ -25,7 +25,8 @@ header {
 }
 .down {
 	padding-top: 100px;
-	padding-bottom: 100px;
+  padding-bottom: 100px;
+  flex: 1
 }
 body {
 	color: white;
@@ -135,10 +136,6 @@ a:hover {
 	color: navy;
 }
 
-.wrapper{
-	min-height: 100vh;
-	position: relative;/*←相対位置*/
-}
 
 footer {
 	background-color: royalblue;
@@ -147,10 +144,8 @@ footer {
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	position: absolute;/*←絶対位置*/
-	bottom: 0; /*下に固定*/
-
 }
+
 .copyright {
 	color: white;
 	font-family: serif;
@@ -164,7 +159,6 @@ select {
 
 
 
-<<<<<<< HEAD
 .search {
 	margin-top: 10px;
 	color: black;
@@ -295,8 +289,3 @@ select::-ms-expand {
 // 	display: flex;
 // 	justify-content: center;
 // }
-=======
-.search-form {
-	float: right;
-}
->>>>>>> master
