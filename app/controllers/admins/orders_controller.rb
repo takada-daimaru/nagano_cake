@@ -15,10 +15,10 @@ class Admins::OrdersController < ApplicationController
 
     if @order.status == "入金確認"
 
-     @orderitems.update(status: "製作待ち") 
+     @orderitems.update(status: "製作待ち")
      redirect_back(fallback_location:root_path)
    else
-     redirect_back(fallback_location:root_path)
+     redirect_to admins_orders_path
   end
   end
 

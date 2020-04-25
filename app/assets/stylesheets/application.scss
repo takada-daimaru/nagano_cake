@@ -25,10 +25,11 @@ header {
 }
 .down {
 	padding-top: 100px;
-	padding-bottom: 100px;
+  padding-bottom: 100px;
+  flex: 1
 }
 body {
-	color: white;
+	color: whitesmoke;
 	font-family: sans-serif;
 	background-color: skyblue;
 }
@@ -135,10 +136,6 @@ a:hover {
 	color: navy;
 }
 
-.wrapper{
-	min-height: 100vh;
-	position: relative;/*←相対位置*/
-}
 
 footer {
 	background-color: royalblue;
@@ -147,22 +144,27 @@ footer {
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	position: absolute;/*←絶対位置*/
-	bottom: 0; /*下に固定*/
-
 }
+
 .copyright {
 	color: white;
 	font-family: serif;
 }
 input {
 	color: black;
+	border-radius: 50px;
+	margin-top: 5px;
+	padding-left: 10px;
 }
 select {
 	color: black;
+	height: 30px;
 }
 
 
+textarea {
+	color: black;
+}
 
 .search {
 	margin-top: 10px;
@@ -263,7 +265,7 @@ select::-ms-expand {
     top: 0;
 }
 
-.select-wrap.select-circle > select:-moz-focusring { 
+.select-wrap.select-circle > select:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #fff;
 }
@@ -280,6 +282,8 @@ select::-ms-expand {
    top: 0;
    right: 0;
 }
+
+
 .select-wrap.select-circle-arrow:hover > select,.select-wrap.select-circle-arrow > select:hover{
   color: #fff;
 }
@@ -294,3 +298,4 @@ select::-ms-expand {
 // 	display: flex;
 // 	justify-content: center;
 // }
+

@@ -24,6 +24,7 @@ class Admins::ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
+    # binding.pry
     @item.update(items_params)
     redirect_to admins_item_path
   end
