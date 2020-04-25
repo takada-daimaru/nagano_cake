@@ -28,7 +28,7 @@ header {
 	padding-bottom: 100px;
 }
 body {
-	color: white;
+	color: whitesmoke;
 	font-family: sans-serif;
 	background-color: skyblue;
 }
@@ -147,14 +147,22 @@ footer {
 	font-family: serif;
 }
 input {
-	color: black;
+	color: navy;
+	border-radius: 50px;
+	margin-top: 5px;
+	padding-left: 10px;
 }
 select {
 	color: black;
+	height: 30px;
 }
 
 
 
 .search-form {
 	float: right;
+}
+
+textarea {
+	color: navy;
 }
