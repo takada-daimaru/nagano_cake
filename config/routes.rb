@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get '/search', to: 'search#search'
     patch '/customers/:id/edit', to: 'customers#update'
     patch '/orders', to: 'orders#update'
+    patch '/items/:id/edit', to: 'items#update'
     resources :order_items, only: [:update]
     resources :orders, only: [:show, :update]
     resources :customers, only: [:index, :show, :edit, :update]
