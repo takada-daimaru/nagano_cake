@@ -49,7 +49,7 @@
           <h3 class="col-xs-4">販売ステータス</h3>
             <br>
            <span class="col-xs-8">
-            <%= f.select :type_id,[["販売中", 1], ["売切れ", 2]], { include_blank: true, selected: 1 }, {class: "form-control"} %>
+            <%= f.select :status, Item.statuses.keys.to_a,{} %>
           </span>
 
        </div>
