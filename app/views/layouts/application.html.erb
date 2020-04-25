@@ -20,22 +20,7 @@
 
     </header>
 
-<<<<<<< HEAD
     <div class="container wrapper">
-=======
-    <div class="search-form">
-      <% if request.fullpath.include? "admin" %>
-        <%= form_tag(admins_search_path, method: :get) do %>   <%# getでsearch.htmlに飛んでる%>
-          <%= text_field_tag 'search[content]' %>
-          <%= select_tag 'search[model]', options_for_select({ "お客様情報" => "customer", "商品情報" => "item", "ジャンル情報" => "type" }) %>
-          <%= select_tag 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
-          <%= submit_tag '検索' %>
-        <% end %>
-      <% end %>
-    </div>
-  
-    <div class="container down">
->>>>>>> master
       <%= yield %>
       <% if admin_signed_in? %>
         <div class="text-center search-flex">

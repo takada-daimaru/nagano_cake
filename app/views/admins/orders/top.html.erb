@@ -2,5 +2,5 @@
 	<h2 class="color">管理者画面</h2>
 	<br>
 	<br>
-	<h2>本日の注文件数　<%= link_to @order_count ,admins_orders_path(count:@order_count) %> 件</h2>
+	<h2>本日の注文件数　<%= link_to @order_count ,admins_orders_path(history_case:"top") %> 件</h2>
 </div>

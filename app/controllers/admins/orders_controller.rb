@@ -23,10 +23,14 @@ class Admins::OrdersController < ApplicationController
   end
 
   def history
-    if params[:count] == nil
-    @orders = Order.all
-  else
-  	@orders = Order.where("Date(created_at) = '#{Date.today}'")
+   @orders = Order.all
+    case params[:history_case]
+    when "top"
+      @orders = Order.where("Date(created_at) = '#{Date.today}'")
+    when "customer"
+      @orders = Order.where(customer_id: params[:customer_id])
+    when "all"
+      @orders = Order.all
   end
   end
 
