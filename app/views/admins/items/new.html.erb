@@ -1,5 +1,5 @@
 <div class="new">
-  <%= form_for @itemnew do |f| %>
+  <%= form_for(@itemnew,url:admins_items_path) do |f| %>
     <div>
       <h1>並びはテーブルタグを使用して後で直します！</h1>
       <h3>商品 新規登録画面</h3>
@@ -21,19 +21,18 @@
         </tr>
         
         <tr>
-          <th><%= f.label :type_id, "ジャンル" %></th>
+          <th><%= f.label :type_id, "ジャンル１" %></th>
           <td><%= f.select :type_id, Type.all.collect {|t| [t.name, t.id]}, {}, {class: "form-control"} %></td>
         </tr>
 
 
-        <%= f.label :type_id, "ジャンル" %>
-        <%= f.select :type_id,[["asdf", 1], ["as", 2]], { include_blank: true, selected: 1 }, {class: "form-control"} %>
-
+        <%= f.label :status, "販売ステータス" %>
+         <%= f.select :status,[[:販売中], [:売切れ]], { include_blank: true, selected: 1}, {class: "form-control"} %>
         <br>
 
         <tr>
-          <th><%= f.label :status, "販売ステータス" %></th>
-          <td><%= f.text_field :status %></td>
+          <th><%= f.label :excluded, "商品金額" %></th>
+          <td><%= f.text_field :excluded %></td>
         </tr>
 
       </table>
