@@ -9,13 +9,16 @@ class Admins::ItemsController < ApplicationController
   end
 
   def new
-    @itemnew = Item.new
+    @item = Item.new
   end
 
   def create
     @item = Item.new(items_params)
-    @item.save
+    if@item.save
     redirect_to admins_items_path
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -24,9 +27,12 @@ class Admins::ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    # binding.pry
-    @item.update(items_params)
-    redirect_to admins_item_path
+    if @item.update(items_params)
+       flash[:notice] = '商品情報を更新しました。'
+       redirect_to admins_item_path
+    else
+      render 'edit'
+    end
   end
 
   private

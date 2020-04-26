@@ -1,4 +1,19 @@
+<% if flash[:notice] %>
+   <div class="flash">
+   <%= flash[:notice] %>
+      </div>
+   <% end %>
 
+<% if @item.errors.any? %>
+
+    <h2><%= @item.errors.count %>errors prohibited this  from being saved: </h2>
+
+    <ul>
+    <% @item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    <% end %>
+  </ul>
 <h2 class="color">商品 編集画面</h2>
 
    <%= form_for @item, url: admins_item_path do |f|%>

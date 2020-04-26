@@ -7,5 +7,7 @@ class Item < ApplicationRecord
 	validates :excluded, presence: true
 	validates :explanation, presence: true
 	validates :status, presence: true
+	validates :image, presence: true
+	validates :type_id, presence: true
   enum status: { 販売中: 0, 売切れ: 1 }
 end

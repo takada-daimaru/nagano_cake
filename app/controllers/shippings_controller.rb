@@ -3,15 +3,17 @@ class ShippingsController < ApplicationController
 def index
     @shippings = Shipping.all
     @shipping = Shipping.new
+end
 
-
-  end
-
-  def create
+def create
     @shipping = Shipping.new(shipping_params)
     @shipping.customer_id = current_customer.id
-    @shipping.save
+    if @shipping.save
     redirect_to shippings_path
+    else
+    @shippings = Shipping.all
+    render :template =>'shippings/index'
+    end
   end
 
   def destroy
@@ -26,8 +28,12 @@ def index
 
   def update
     @shipping = Shipping.find(params[:id])
-    @shipping.update(shipping_params)
-    redirect_to shippings_path
+    if @shipping.update(shipping_params)
+       flash[:notice] = '情報を更新しました。'
+       redirect_to shippings_path
+    else
+      render 'edit'
+    end
   end
 
 

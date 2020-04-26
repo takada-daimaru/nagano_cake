@@ -1,5 +1,17 @@
+ <% if @item.errors.any? %>
+
+ <h2><%= @item.errors.count %>errors prohibited this  from being saved: </h2>
+
+    <ul>
+    <% @item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    <% end %>
+  </ul>
+
+
 <div class="new">
-  <%= form_for(@itemnew,url:admins_items_path) do |f| %>
+  <%= form_for(@item,url:admins_items_path) do |f| %>
     <div>
       <h1>並びはテーブルタグを使用して後で直します！</h1>
       <h3>商品 新規登録画面</h3>

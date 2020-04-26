@@ -1,4 +1,15 @@
 <div class="row">
+  <% if @shipping.errors.any? %>
+
+    <h2><%= @shipping.errors.count %>errors prohibited this  from being saved: </h2>
+
+    <ul>
+    <% @shipping.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    <% end %>
+  </ul>
+
 <h3 class="color">配送先登録/一覧</h3>
 <%= form_for @shipping do |f| %>
 
