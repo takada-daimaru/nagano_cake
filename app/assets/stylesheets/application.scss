@@ -299,6 +299,7 @@ select::-ms-expand {
 // 	justify-content: center;
 // }
 
+
 .table-hover > tbody > tr:hover {
   background-color: skyblue;
 }
@@ -309,5 +310,8 @@ select::-ms-expand {
 }
 .btn {
   border-radius: 50px;
+
+.pull-center{
+   text-align: center
 }
 
