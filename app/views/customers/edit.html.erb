@@ -1,3 +1,14 @@
+<% if @customer.errors.any? %>
+
+    <h2><%= @customer.errors.count %>errors prohibited this  from being saved:</h2>
+
+    <ul>
+    <% @customer.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    <% end %>
+  </ul>
+
 <div class="row">
   <div class="col-xs-9">
     <h2 class="color">登録情報編集</h2>
