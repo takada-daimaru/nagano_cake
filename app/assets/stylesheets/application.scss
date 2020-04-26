@@ -299,6 +299,19 @@ textarea {
 // 	justify-content: center;
 // }
 
+
+.table-hover > tbody > tr:hover {
+  background-color: skyblue;
+}
+
+.button {
+  margin-top: 10px;
+  border-radius: 50px;
+}
+.btn {
+  border-radius: 50px;
+}
+
 .pull-center{
    text-align: center
 }
