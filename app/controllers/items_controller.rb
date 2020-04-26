@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
   def show
     @customer = current_customer
     @cartitemnew = CartItem.new
-    @types = Type.all
+    @types = Type.where(status:"有効")
     @item = Item.find(params[:id])
   end
 

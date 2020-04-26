@@ -169,7 +169,6 @@ Type.create!(
   name: 'ゼリー',
   status: true,
 )
-
    Item.create!(
    type_id: 1,
    name: '洋梨のチーズタルト',
