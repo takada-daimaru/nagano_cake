@@ -35,3 +35,14 @@
 .lineheight {
 	padding-top: 15px;
 }
+.plus-icon {
+	background-color: navy;
+	color: yellow;
+	border-radius: 50%;
+	padding: 30px;
+	font-size: 30px;
+}
+.plus-icon:hover {
+	background-color: yellow;
+	color: navy;
+}
