@@ -1,0 +1,48 @@
+ja:
+  acriverecord:
+    models:
+      customer: 顧客
+    attributes:
+      customer:
+        first_name: 姓
+        last_name: 名
+        first_name_kana: 姓(カナ)
+        last_name: 名(カナ)
+        postcode: 郵便番号
+        address: 住所
+        phone_number: 電話番号
+    
+    models:
+      shipping: 配送先
+    attributes:
+      shipping:
+        postcode: 郵便番号
+        address: 住所
+        name: 宛名
+
+    models:
+      order: 注文
+    attributes:
+      order:
+        postcode: 郵便番号
+        address: 住所
+        destination: 宛名
+
+    models:
+      cart_item: カート内商品
+    attributes:
+      cart_item:
+        quontity: 商品個数
+
+    models:
+      item: 商品
+    attributes:
+      name: 商品名
+      explanation: 商品説明文
+      excluded: 税抜価格
+
+    
+
+
+
+    
