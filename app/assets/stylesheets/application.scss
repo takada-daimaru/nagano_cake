@@ -198,7 +198,7 @@ textarea {
     -o-transition-timing-function: cubic-bezier(1, 0, 0, 1);
     transition-timing-function: cubic-bezier(1, 0, 0, 1);
 }
-select{
+.select-wrap > select{
     outline:none;
     -moz-appearance: none;
     text-indent: 0.01px;
@@ -214,12 +214,12 @@ select{
     -webkit-appearance: none;
     -moz-appearance: none;
 }
-select option{
+.select-wrap > select option{
   background-color: #fff;
   color: #333;
   padding: 0;
 }
-select::-ms-expand {
+.select-wrap > select::-ms-expand {
   display: none;
 }
 

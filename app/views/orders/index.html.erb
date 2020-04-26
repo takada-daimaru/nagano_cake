@@ -24,7 +24,7 @@
                 <%= order_item.item.name %><br>
               <% end %>
             </td>
-            <td><%= number_to_currency(((order.invoice).to_i + (order.shipping_cost).to_i), :locale => 'jp') %></td>
+            <td><%= number_to_currency(((order.invoice).to_i), :locale => 'jp') %></td>
             <td><%= order.status %></td>
 
 

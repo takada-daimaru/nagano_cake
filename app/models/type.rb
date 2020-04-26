@@ -1,5 +1,5 @@
 class Type < ApplicationRecord
   has_many :items, dependent: :destroy
 
-  enum status: { 無効: true, 有効: false }
+  enum status: { 有効: true, 無効: false }
 end
