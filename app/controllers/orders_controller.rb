@@ -51,8 +51,12 @@ class OrdersController < ApplicationController
       
       current_customer.cart_items.delete_all
       # 顧客のカート内をデリートしてターンエンド
+      redirect_to orders_thanks_path
+    else
+      redirect_to new_order_path
+      flash[:notice] = '配送先を指定してください'
     end
-    redirect_to orders_thanks_path
+    
   end
 
   def thanks
