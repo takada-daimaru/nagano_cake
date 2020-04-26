@@ -29,10 +29,11 @@ class ItemsController < ApplicationController
   end
 
   def top
-      @rank_items = Item.find(OrderItem.group(:item_id).order('count(item_id) desc').limit(4).pluck(:item_id))
 
       @types = Type.where(status: "有効")
       @items = Item.where(status:"販売中")
+      @rank_items = Item.find(OrderItem.group(:item_id).order('count(item_id) desc').limit(4).pluck(:item_id))
+
 
   end
 
