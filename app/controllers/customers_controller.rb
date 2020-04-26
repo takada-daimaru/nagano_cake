@@ -14,14 +14,23 @@ class CustomersController < ApplicationController
 
   def update
     @customer = current_customer
-    @customer.update(customer_params)
+    if @customer.update(customer_params)
+      flash[:notice] = '情報を更新しました。'
     redirect_to customers_path
+    else
+      render 'edit'
+    end
   end
 
   def passwordsupdate
     @customer = current_customer
-    @customer.update(password_params)
+    if @customer.update(password_params)
+      flash[:notice] = 'パスワードを変更しました。'
     redirect_to root_path
+    else
+      flash[:notice] =  'パスワードが変更できませんでした。'
+    redirect_back(fallback_location:root_path)
+    end
   end
 
   def status
