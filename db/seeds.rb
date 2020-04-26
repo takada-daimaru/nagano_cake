@@ -169,6 +169,12 @@ Type.create!(
   name: 'ゼリー',
   status: true,
 )
+
+Type.create!(
+  # id:7
+  name: '〜スマイル〜',
+  status: true,
+)
    Item.create!(
    type_id: 1,
    name: '洋梨のチーズタルト',
@@ -220,7 +226,7 @@ Type.create!(
    explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
    excluded: '2900',
    image: File.open('./app/assets/images/items/fruit-tart.jpg'),
-   status: 1,
+   status: 0,
  )
 
  Item.create!(
@@ -255,6 +261,15 @@ Type.create!(
    name: 'バナナケーキ',
    explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
    excluded: '980',
+   image: File.open('./app/assets/images/items/banana-cake.jpg'),
+   status: 0,
+ )
+
+ Item.create!(
+   type_id: 7,
+   name: 'とびっきりスマイル(チョコ風味)',
+   explanation: 'smile',
+   excluded: '2',
    image: File.open('./app/assets/images/items/banana-cake.jpg'),
    status: 0,
  )
