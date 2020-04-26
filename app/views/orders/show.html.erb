@@ -41,7 +41,7 @@
       <table class="table table-bordered">
         <tr>
           <th class="col-xs-6">商品合計</th>
-          <td class="col-xs-6"><%= "#{sum}個" %></td>
+          <td class="col-xs-6"><%= number_to_currency((@order.invoice - @order.shipping_cost), :locale => 'jp') %></td>
         </tr>
         <tr>
           <th class="col-xs-6">配送料</th>
