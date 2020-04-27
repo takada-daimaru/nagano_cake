@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      customer: "顧客"
+    attributes:
+      customer:
+        first_name: "姓"
+        last_name: "名"
+        first_name_kana: "(セイ)"
+        last_name_kana: "(メイ)"
+        postcode: "郵便番号"
+        address: "住所"
+        phone_number: "電話番号"

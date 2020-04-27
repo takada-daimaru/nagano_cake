@@ -7,5 +7,6 @@ class Order < ApplicationRecord
 
   validates :address, presence: true
   validates :postcode, presence: true
+  validates :destination, presence: true
 
 end
