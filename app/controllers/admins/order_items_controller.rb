@@ -10,16 +10,10 @@ class Admins::OrderItemsController < ApplicationController
 		  redirect_back(fallback_location:root_path)
 
 
-	   elsif @orderitem.status == "製作完了" 
-	   		 @orderitemall.each do |orderitem|
-	   		 @a = orderitem.status
-	   		 end
-	   		 
-	   		if @a == "製作完了"
-	   	     @order.update(status: "発送準備中")
+	   elsif @orderitemall.where(status: "製作完了").count == @orderitemall.count 
+	   		 @order.update(status: "発送準備中")
 	   	     redirect_back(fallback_location:root_path)
 
-	   	 end
 	   	else
 			 redirect_back(fallback_location:root_path)
 

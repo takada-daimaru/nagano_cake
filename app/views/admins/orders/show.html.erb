@@ -74,12 +74,12 @@
 				<div>
 					<span><strong>商品合計</strong></span>
 					<span>
-						<%= (total).to_i.floor(0).to_s(:delimited, delimiter: ',') %>円
+						<%= (total).to_i.floor(0).to_s(:delimited, delimiter: ',') %>
 					</span>
 				</div>
 				<div>
 					<span><strong>送料</strong></span>
-					<span><%= @order.shipping_cost %>円</span>
+					<span><%= @order.shipping_cost %></span>
 				</div>
 				<div class="order">
 					<span><strong>請求額合計</strong></span>
