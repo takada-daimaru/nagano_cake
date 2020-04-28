@@ -27,7 +27,7 @@
             <tr>
               <td><p>宛名</p></td>
               <td><%= f.text_field :name %></td>
-              <td><%= f.submit '登録する' %></td>
+              <td><%= f.submit '登録する', class: 'btn btn-primary' %></td>
             </tr>
 
         </table>
@@ -50,8 +50,10 @@
             <td width="20%"><%= shipping.postcode %></td>
             <td width="40%"><p><%= shipping.address %></td>
             <td width="15%"><%= shipping.name %></td>
-            <td width="40%"><%= link_to "編集する", edit_shipping_path(shipping.id) %>
-            <%= link_to "削除する", shipping_path(shipping.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %></td>
+            <td width="40%">
+              <%= link_to "編集する", edit_shipping_path(shipping.id), class: 'link-color' %>
+              <%= link_to "削除する", shipping_path(shipping.id), method: :delete, class: 'link-color', "data-confirm" => "本当に削除しますか？"  %>
+            </td>
             </tr>
       <% end %>
     </tbody>
