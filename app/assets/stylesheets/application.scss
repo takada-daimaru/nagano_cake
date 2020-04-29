@@ -136,14 +136,19 @@ a:hover {
 	color: navy;
 }
 
-
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 footer {
 	background-color: royalblue;
 	height: 50px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
+  width: 100%;
+  margin-top: auto;
 }
 
 .copyright {
